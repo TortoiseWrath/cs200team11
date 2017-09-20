@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>CS 200 Fall 2017 Team 11 Project 1 Report</title>
+		<title>CS&#x2009;200 Fall 2017 Team 11 Project 1 Report</title>
 		<meta charset="UTF-8">
 		<style type="text/css">
 			html {
@@ -29,9 +29,24 @@
 			pre {
 				display: block;
 				position: relative;
-				width: 100%;
 				white-space: pre-wrap;
 			}
+
+			h1 {
+				text-align: center;
+				color: #900; /*crimson*/
+			}
+
+			h2, ul, p, pre { padding: 0 40px 0 40px; }
+
+			h2 {
+				padding-bottom: 0.1em;
+				margin-bottom: 0.2em;
+				margin-top: 1em;
+				border-bottom: 3pt double black;
+			}
+
+			ul, p { margin-top: 0.5em; }
 
 			/* Formatting for contributors table */
 			table.contributors {
@@ -40,7 +55,7 @@
 			}
 			table.contributors td {
 				text-align: right;
-				padding: 0 0.5em 0 0.5em;
+				padding: 0 0.5em 0 0.9em;
 				line-height: 1em;
 			}
 			table.contributors td:first-child { text-align: left; }
@@ -52,7 +67,7 @@
 	</head>
 	<body><div>
 		<!-- TODO: Include submitter name & date (Sept. 27) -->
-		<h1 align="center"> CS200 Project 1 - Team 11 </h1>
+		<h1> CS&#x2009;200&#x2003;Project 1&#x2003;Team 11 </h1>
 		<table class="contributors" align="center">
 			<tr><td>Christopher Roper</td><td>11446936</td><td>cmroper@crimson.ua.edu</td><td>time spent = 45 minutes</td></tr>
 			<tr><td>Hunter Allen</td><td>11538059</td><td>jhallen3@crimson.ua.edu</td><td>time spent = 30 minutes</td></tr>
@@ -61,8 +76,7 @@
 			<tr><td>[name]</td><td>[CWID]</td><td>[email]</td><td>[time spent]</td></tr>
 		</table>
 
-		<h1>Task Distributions</h1>
-		<hr>
+		<h2>Task Distributions</h2>
 		<ul>
 			<li>Christopher Roper, task done (%)</li>
 			<li>Hunter Allen, task done (%)</li>
@@ -71,8 +85,7 @@
 			<li>Sean Gillen, task done (%)</li>
 		</ul>
 
-		<h1>Glossary</h1>
-		<hr>
+		<h2>Glossary</h2>
 		<ul>
 			<li>Provider : A health care professional providing services to its members</li>
 			<li>Terminal : The access point for each provider to the system each terminal is equipped with a  card reader</li>
@@ -97,10 +110,9 @@
 			<li>Membership Records : Records stored at the ChocAn data center that can be updated by operators in interactive mode and are updated at 9 PM each evening by ACME accounting services</li>
 		</ul>
 
-		<h1>Use Cases</h1>
-		<hr>
+		<h2>Use Cases</h2>
 		<pre> <!-- TODO: correct formatting as per project instructions -->
-		Member (Fee) <-> CA (Consultation and treatment prof. (dietitian, internist, exercise experts))
+Member (Fee) <-> CA (Consultation and treatment prof. (dietitian, internist, exercise experts))
 Member (9 digit number card swiped) -> Professional (Service) -> Provider CA terminal -> CA Data Center -> CA terminal (Verification) [Validated, Invalid Number, Membership Suspended -> Fees Owed]
 [Payment]
 CA provider (MM-DD-YYYY and member number) ->  Provider directory (6 digit number) [598470 dietician, 883948 aerobics exercise] -> Screen displays what code responds to (after confirmation) ->  writes to disk [Current Date and Time (MM-DD-YYYY, HH:MM:SS), Date Service Provided (MM-DD-YYYY), Provider Num (9 digit), Member Num (9 digit), Service Code (6 digit), Comments (100 char, optional)] &rarr;
