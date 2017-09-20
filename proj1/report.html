@@ -10,7 +10,7 @@
 				padding: 0;
 			}
 			body {
-				background-color: #900; <!-- crimson because Alabama -->
+				background-color: #900; /* crimson because Alabama */
 				width: 100%;
 				min-height: 100%;
 				margin: 0;
@@ -32,18 +32,34 @@
 				width: 100%;
 				white-space: pre-wrap;
 			}
+
+			/* Formatting for contributors table */
+			table.contributors {
+				border-collapse: separate;
+				border-spacing: 0.5em;
+			}
+			table.contributors td {
+				text-align: right;
+				padding: 0 0.5em 0 0.5em;
+				line-height: 1em;
+			}
+			table.contributors td:first-child { text-align: left; }
+			table.contributors td:not(:first-child) {
+				border-left: 1px solid black;
+			}
+			table.contributors tr {	padding-bottom: 0.2em; }
 		</style>
 	</head>
 	<body><div>
 		<!-- TODO: Include submitter name & date (Sept. 27) -->
 		<h1 align="center"> CS200 Project 1 - Team 11 </h1>
-		<p align="center">
-			Christopher Roper  |  11446936  |  cmroper@crimson.ua.edu  |  time spent = 45 minutes <br>
-			Hunter Allen  |  11538059  |  jhallen3@crimson.ua.edu  |  time spent = 30 minutes <br>
-			Sean Gillen |  11718859  |  sdgillen@crimson.ua.edu  |  time spent = 50 minutes <br>
-			[name]  |  [CWID]  |  [email]  |  [time spent] <br>
-			[name]  |  [CWID]  |  [email]  |  [time spent] <br>
-		</p>
+		<table class="contributors" align="center">
+			<tr><td>Christopher Roper</td><td>11446936</td><td>cmroper@crimson.ua.edu</td><td>time spent = 45 minutes</td></tr>
+			<tr><td>Hunter Allen</td><td>11538059</td><td>jhallen3@crimson.ua.edu</td><td>time spent = 30 minutes</td></tr>
+			<tr><td>Sean Gillen</td><td>11718859</td><td>sdgillen@crimson.ua.edu</td><td>time spent = 50 minutes</td></tr>
+			<tr><td>[name]</td><td>[CWID]</td><td>[email]</td><td>[time spent]</td></tr>
+			<tr><td>[name]</td><td>[CWID]</td><td>[email]</td><td>[time spent]</td></tr>
+		</table>
 
 		<h1>Task Distributions</h1>
 		<hr>
