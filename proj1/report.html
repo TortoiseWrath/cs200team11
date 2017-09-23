@@ -113,23 +113,67 @@
 		<h2>Use Cases</h2>
 		<pre> <!-- TODO: correct formatting as per project instructions -->
 		
-		<b>Use case:</b> Name of the use case
-		<b>Context:</b> Brief Description of the use case
-		<b>Actors:</b> List of actors of the use case
-		<b>Main Success Scenario:</b> The step-by-step description such as:
-		1.	Step 1
-			1.1.   Step 1.1.
-		2.	Step 2
-		3.	Step 3
+<!-- This is an example for copy and paste : go wild with the format editing sdgillen - it wont hurt my feelings
+<b>Use case:</b> Name of the use case
+<b>Context:</b> Brief Description of the use case
+<b>Actors:</b> List of actors of the use case
+<b>Main Success Scenario:</b> The step-by-step description such as:
+1.	Step 1
+	1.1.   Step 1.1.
+2.	Step 2
+3.	Step 3
 		
-		<b>Extensions:</b> Possible alternatives to the steps you may think of (e.g., what happens if something goes wrong at this step), such as:
-		1a.	Instead of Step 1
-		3a.	Instead of Step 3
-		3b.	Other alternative to step 3
+<b>Extensions:</b> Possible alternatives to the steps you may think of (e.g., what happens if something goes wrong at this step), such as:
+1a.	Instead of Step 1
+3a.	Instead of Step 3
+3b.	Other alternative to step 3
+<hr>
+-->
 		
+<b>Use case:</b> Member card swiped to receive services
+<b>Context:</b> To receive services a member hands his or her card to the provider, who slides the card through the card reader which validates the members status.
+<b>Actors:</b> Member, provider, and ChocAn
+<b>Main Success Scenario:</b>
+1.	Member hands card to service provider
+2.	Provider slides card through card reader on terminal
+	2.1.		Terminal dials ChocAn data center
+	2.2.		ChocAn data center verifies member number
+3.	"Validated" appears on display
+		
+<b>Extensions:</b>
+2.2a.	Number is not valid
+	2.2a.1.	"Invalid Number" displayed
+	2.2a.2.	"Member Suspended" displayed - Indicates fees are owed and member status set to "suspended"
+<hr>
+<b>Use case:</b> Bill ChocAn for health care services provided to member
+<b>Context:</b> To bill ChocAn after a health care service has been provided to the member, the provider again passes the card through the card reader or keys in the member number. When the word Validated appears, the provider keys in the date the service was provided
+<b>Actors:</b> Member, provider, and ChocAn
+<b>Main Success Scenario:</b>
+1.	Member hands card to service provider
+2.	Provider passes card through card reader
+	2.2a. Provider keys in member number
+3.	Word "Validated" appears
+4.	Provider keys in date service was provided in format MM-DD-YYYY
+5.	Provider uses the Provider Directory to look up the appropriate six-digit service code corresponding to the service provided
+6.	Provider keys in service code
+7.	Software product then displays the name of the service corresponding to the code (up to 20 characters)
+	7.1.		Software product asks the provider to verify that this is indeed the service that was provided
+8.	Provider has option to enter comments about service provided
+9.	Software product writes a record to disk that includes the following fields:
+	Current date and time (MM–DD–YYYY HH:MM:SS).
+	Date service was provided (MM–DD–YYYY).
+	Provider number (9 digits).
+	Member number (9 digits).
+	Service code (6 digits).
+	Comments (100 characters) (optional)
+10.	Software product next looks up the fee to be paid for that service and displays it on the provider’s terminal
+11.	For verification purposes, the provider has a form on which to enter the current date and time, the date the service was provided, member name and number, service code, and fee to be paid
+12.	 At the end of the week, the provider totals the fees to verify the amount to be paid to that provider by ChocAn for that week
+		
+<b>Extensions:</b> Possible alternatives to the steps you may think of (e.g., what happens if something goes wrong at this step), such as:
+7.1a.	If the provider has entered a nonexistent code, an error message is printed
+<hr>
 Member (Fee) <-> CA (Consultation and treatment prof. (dietitian, internist, exercise experts))
-Member (9 digit number card swiped) -> Professional (Service) -> Provider CA terminal -> CA Data Center -> CA terminal (Verification) [Validated, Invalid Number, Membership Suspended -> Fees Owed]
-[Payment]
 CA provider (MM-DD-YYYY and member number) ->  Provider directory (6 digit number) [598470 dietician, 883948 aerobics exercise] -> Screen displays what code responds to (after confirmation) ->  writes to disk [Current Date and Time (MM-DD-YYYY, HH:MM:SS), Date Service Provided (MM-DD-YYYY), Provider Num (9 digit), Member Num (9 digit), Service Code (6 digit), Comments (100 char, optional)] &rarr;
 Provider screen displays fee -> Provider verifies previous things written to disk &rarr; End of week verifies total fees
 Provider request directory (alpha)  CA &rarr; Email with directory &rarr; Provider
