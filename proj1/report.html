@@ -150,6 +150,55 @@
 				</ol>
 			</div>
 		</div>
+		
+		<div class="usecase">
+			<p title="Use case">Provider Directory Request</p>
+			<p title="Context">Provider makes request to software for the provider directory, an alphabetically ordered list of service names and corresponding service codes and fees. The Provider Directory is sent to the provider as an e-mail attachment. .</p>
+			<p title="Actors">Provider and data center</p>
+			<ol title="Main Success Scenario">
+				<li>Provider uses terminal to request provider directory</li>
+				<li>Software sends provider directory to provider as e-mail attachment</li>
+		</div>
+		
+		<div class="usecase">
+			<p title="Use case">Main accounting procedure ran</p>
+			<p title="Context">At midnight on Friday, the main accounting procedure is run at the ChocAn Data Center. It reads the week’s fi le of services provided and prints a number of reports. Each report also can be run individually at the request of a ChocAn manager at any time during the week.</p>
+			<p title="Actors">Member, Provider, and ChocAn</p>
+			<ol title="Main Success Scenario">
+				<li>
+					Main accounting procedure ran on midnight of Friday
+					<ol>
+						<li>ChocAn manager can request report at any time</li>
+					</ol>
+				</li>
+				<li>Read the weeks file of services provided</li>
+				<li>Prints a number of reports</li>
+				<li>Report sent to each member that received services in last week</li>
+				<li>
+					Report also sent as e-mail attachment
+					<ul>
+						 <li>Member name (25 characters).</li>
+						 <li>Member number (9 digits).</li>
+ 						 <li>Member street address (25 characters).</li>
+ 						 <li>Member city (14 characters).</li>
+ 						 <li>Member state (2 letters).</li>
+ 						 <li>Member ZIP code (5 digits).</li>
+						 <li>For each service provided, the following details are required:</li>
+						 <li>Date of service (MM–DD–YYYY).</li>
+						 <li>Provider name (25 characters).</li>
+ 						 <li>Service name (20 characters). </li>
+ 					</ul>
+ 				</li>
+				<li>Report sent to each provider that has billed ChocAn in last week</li>
+				<li>
+					Record consisting of EFT data written to disk
+					<ol>
+						<li>Banking computers later ensure that each providers bank account is credited with the proper amount</li>
+					</ol>
+				</li>
+				<li>Summary report is given to manager for accounts payable</li>
+			</ol>
+		</div>
 
 		<pre>
 Member (Fee) &lt;-&gt; CA (Consultation and treatment prof. (dietitian, internist, exercise experts))
