@@ -1,0 +1,127 @@
+	html {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background-color: #900; /* crimson because Alabama */
+		width: 100%;
+		min-height: 100%;
+		margin: 0;
+		position: relative;
+		font-family: sans-serif;
+	}
+	body>div {
+		width: 8in;
+		margin-top: 0.25in;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0.25in;
+		border: 1pt solid black;
+		border-radius: 0.25in;
+		background-color: white;
+	}
+	pre {
+		display: block;
+		position: relative;
+		white-space: pre-wrap;
+	}
+
+	h1 {
+		text-align: center;
+		color: #900; /*crimson*/
+	}
+
+	h2, ul, p, pre, .usecase>div { padding: 0 40px 0 40px; }
+
+	h2 {
+		padding-bottom: 0.1em;
+		margin-bottom: 0.2em;
+		margin-top: 1em;
+		border-bottom: 3pt double black;
+	}
+
+	ul, p { margin-top: 0.5em; }
+
+	/* Formatting for contributors table */
+	table.contributors {
+		border-collapse: separate;
+		border-spacing: 0.5em;
+	}
+	table.contributors td {
+		text-align: right;
+		padding: 0 0.5em 0 0.9em;
+		line-height: 1em;
+	}
+	table.contributors td:first-child { text-align: left; }
+	table.contributors td:not(:first-child) {
+		border-left: 1px solid black;
+	}
+	table.contributors tr {	padding-bottom: 0.2em; }
+
+	/* Formatting for glossary */
+	dt { font-weight: bold; }
+	dt:after { content: ":"; }
+	dd:not(:last-child) { padding-bottom: 1em; }
+
+	.usecase>*::before {
+		content: attr(title) ":";
+		font-weight: bold;
+		display: block;
+		margin-left: -40px;
+	}
+	.usecase>* {
+		margin: 0.5em 0 0 0;
+	}
+	.usecase>*:first-child::before {
+		display: inline;
+		padding-right: 1em;
+	}
+	.usecase>*:first-child {
+		padding-top: 0.5em;
+		font-weight: bold;
+	}
+	.usecase:not(:last-child) {
+		border-bottom: 1px solid black;
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+	}
+	.usecase ol {
+		counter-reset: step;
+		list-style-type: none;
+	}
+	.usecase li::before {
+		counter-increment: step;
+		content: counters(step, ".") ".";
+		display: inline-block;
+		margin-left: -40px;
+		min-width: 40px;
+		text-align: center;
+	}
+	.usecase li {
+		margin-left: -3px;
+	}
+	.usecase div>ol {
+		margin-left: -40px;
+		margin-bottom: 0.5em;
+		margin-top: 0;
+		counter-reset: extension;
+	}
+	.usecase div>ol:last-child { margin-bottom: 0; }
+	.usecase div ol {
+		counter-reset: step;
+	}
+	.usecase div>ol>li {
+		counter-increment: extension;
+	}
+	.usecase div>ol>li::before {
+		content: attr(data-step) counter(extension, lower-alpha) ".";
+	}
+	.usecase div>ol>li>ol li::before {
+		content: attr(data-step) counter(extension, lower-alpha) "." counter(step) ".";
+	}
+	.usecase ul>li::before {
+		counter-increment: none;
+		content: none;
+	}
+	li>ul {	margin-top: 0; }
