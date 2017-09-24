@@ -173,6 +173,20 @@
 				</li>
 				<li>Read the weeks file of services provided</li>
 				<li>Prints a number of reports</li>
+				<li>
+					Record consisting of EFT data written to disk
+					<ol>
+						<li>Banking computers later ensure that each providers bank account is credited with the proper amount</li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+
+		<div class="usecase">
+			<p title="Use case">Member report sent</p>
+			<p title="Context">List of services provided sent to member from ChocAn</p>
+			<p title="Actors">Member and ChocAn</p>
+			<ol title="Main Success Scenario">
 				<li>Report sent to each member that received services in last week</li>
 				<li>
 					Report also sent as e-mail attachment
@@ -188,37 +202,46 @@
 						 <li>Provider name (25 characters).</li>
  						 <li>Service name (20 characters). </li>
  					</ul>
- 				</li>
-				<li>Report sent to each provider that has billed ChocAn in last week</li>
+ 				 </li>
+				</ol>
+		</div>
+		
+		<div class="usecase">
+			<p title="Use case">Provider report sent</p>
+			<p title="Context">List of services provided to members sent to each provider</p>
+			<p title="Actors">Provider and ChocAn</p>
+			<ol title="Main Success Scenario">
 				<li>
-					Record consisting of EFT data written to disk
-					<ol>
-						<li>Banking computers later ensure that each providers bank account is credited with the proper amount</li>
-					</ol>
-				</li>
+					Report sent to each provider that has billed ChocAn in last week
+					<ul>
+						 <li>Provider name (25 characters).</li>
+ 						 <li>Provider number (9 digits).</li>
+ 						 <li>Provider street address (25 characters).</li>
+						 <li>Provider city (14 characters).</li>
+						 <li>Provider state (2 letters).</li>
+						 <li>Provider ZIP code (5 digits).</li>
+						 <li>For each service provided, the following details are required:</li>
+						 <li>Date of service (MM–DD–YYYY).</li>
+						 <li>Date and time data were received by the computer (MM–DD–YYYY HH:MM:SS).</li>
+						 <li>Member name (25 characters).</li>
+						 <li>Member number (9 digits).</li>
+						 <li>Service code (6 digits).</li>
+						 <li>Fee to be paid (up to $999.99).</li>
+						 <li>Total number of consultations with members (3 digits).</li>
+						 <li>Total fee for week (up to $99,999.99). </li>
+					</li>
 				<li>Summary report is given to manager for accounts payable</li>
-			</ol>
+				</ol>
 		</div>
 
 		<pre>
 Member (Fee) &lt;-&gt; CA (Consultation and treatment prof. (dietitian, internist, exercise experts))
-Provider screen displays fee -&gt; Provider verifies previous things written to disk &rarr; End of week verifies total fees
-Provider request directory (alpha)  CA &rarr; Email with directory &rarr; Provider
-11:59 Friday CA Data Center reads services and prints reports, each report individual at CA management request
-CA DC &rarr; Member [Name (25 char), number (9 digit), Street Address(25 char), City (14 char), ST (2 char), Zip (5 digit)]
 CA DC&rarr; List of services with Date of Service, D&amp;T receieved by Comp, Member name, number, Service Code, Fee to be paid (up to 999.99), total num of consultation, Fee for week (Up to 99,999.999)
-Electronic Fund Transfer (EFT) -&gt; Disk &rarr;
-Bank computers verify each provider is credited
 CA DC -&gt; Manager list for payable [Provider names, number of consultations, total fee for week, total num providers, and overall fee]
 During day CADC -&gt; Interactive Mode -&gt; operators add delete and update member and provider records
 CADC -&gt; Acme Acc. Services [Record Payments, Suspending members overdue, reinstating suspended members] -&gt; CADC (at 9PM daily)
 US -&gt; Data processing software
 Other -&gt; Comm software, terminal, Acme, and EFT
-Provider terminal -&gt; Simulated keyboard input -&gt; Transmitted to provider terminal appear on screen
-Manager terminal -&gt; Simulated by same keyboard and screen
-Each member report is it’s own file, naming is Member_Name, Date_Of_Report
-Provider Report is it’s own file, Provider_Name, Date_Of_Report
-**No files sent as email attachments**
 We send EFT data is Provider name, number, and amt to transfer
 		</pre>
 
