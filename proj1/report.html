@@ -51,45 +51,13 @@
 		</dl>
 
 		<h2>Use cases</h2>
-		<script type="text/html"> <!-- ugly hack, temporary until completion of use cases -->
-			This is an example for copy and paste.
-			<div class="usecase">
-				<p title="Use case">Name of the use case</p>
-				<p title="Context">Brief description of the use case</p>
-				<p title="Actors">List of actors in the use case</p>
-				<ol title="Main Success Scenario"> <!-- The step-by-step description -->
-					<li> Step 1 </li>
-					<li>
-						Step 2
-						<ol>
-							<li>Step 2.1</li>
-							<li>Step 2.2</li>
-						</ol>
-					</li>
-					<li> Step 3 </li>
-				</ol>
-				<div title="Extensions"> <!-- Possible alternatives to the steps you may think of (e.g., what happens if something goes wrong at this step), such as: -->
-					<ol> <!-- for example, alternatives for step 2.1; unfortunately, data-step must be included on ALL li items because otherwise I would need to write javascript -->
-						<li data-step="2.1"> Step 2.1a
-							<ol>
-								<li data-step="2.1"> Step 2.1a.1 </li>
-								<li data-step="2.1"> Step 2.1a.2 </li>
-							</ol>
-						</li>
-						<li data-step="2.1"> Step 2.1b </li>
-					</ol>
-					<ol>
-						<li data-step="3"> Step 3a </li>
-						<li data-step="3"> Step 3b </li>
-					</ol>
-				</div>
-			</div>
-		</script> <!-- end example -->
+		<script type="text/html"> 
+		</script>
 
 		<div class="usecase">
 			<p title="Use case">Member card swiped to receive services</p>
 			<p title="Context">To receive services a member hands his or her card to the provider, who slides the card through the card reader which validates the members status.</p>
-			<p title="Actors">Member, provider, and ChocAn</p>
+			<p title="Actors">Member, provider, and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>Member hands card to service provider</li>
 				<li>
@@ -116,7 +84,7 @@
 		<div class="usecase">
 			<p title="Use case">Bill ChocAn for health care services provided to member</p>
 			<p title="Context">To bill ChocAn after a health care service has been provided to the member, the provider again passes the card through the card reader or keys in the member number. When the word Validated appears, the provider keys in the date the service was provided.</p>
-			<p title="Actors">Member, provider, and ChocAn</p>
+			<p title="Actors">Member, provider, and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>Member hands card to service provider</li>
 				<li>Provider slides card through card reader on terminal or keys in member number</li>
@@ -154,7 +122,7 @@
 		<div class="usecase">
 			<p title="Use case">Provider Directory Request</p>
 			<p title="Context">Provider makes request to software for the provider directory, an alphabetically ordered list of service names and corresponding service codes and fees. The Provider Directory is sent to the provider as an e-mail attachment. .</p>
-			<p title="Actors">Provider and data center</p>
+			<p title="Actors">Provider and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>Provider uses terminal to request provider directory</li>
 				<li>Software sends provider directory to provider as e-mail attachment</li>
@@ -163,7 +131,7 @@
 		<div class="usecase">
 			<p title="Use case">Main accounting procedure ran</p>
 			<p title="Context">At midnight on Friday, the main accounting procedure is run at the ChocAn Data Center. It reads the week’s fi le of services provided and prints a number of reports. Each report also can be run individually at the request of a ChocAn manager at any time during the week.</p>
-			<p title="Actors">Member, Provider, and ChocAn</p>
+			<p title="Actors">Member, Provider, and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>
 					Main accounting procedure ran on midnight of Friday
@@ -185,7 +153,7 @@
 		<div class="usecase">
 			<p title="Use case">Member report sent</p>
 			<p title="Context">List of services provided sent to member from ChocAn</p>
-			<p title="Actors">Member and ChocAn</p>
+			<p title="Actors">Member and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>Report sent to each member that received services in last week</li>
 				<li>
@@ -209,7 +177,7 @@
 		<div class="usecase">
 			<p title="Use case">Provider report sent</p>
 			<p title="Context">List of services provided to members sent to each provider</p>
-			<p title="Actors">Provider and ChocAn</p>
+			<p title="Actors">Provider and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>
 					Report sent to each provider that has billed ChocAn in last week
@@ -244,7 +212,7 @@
 		<div class="usecase">
 			<p title="Use case">Member/Provider records are added, deleted, or updated</p>
 			<p title="Context">During the day, the software at the ChocAn Data Center is run in interactive mode to allow operators to add, delete, or update member of provider records</p>
-			<p title="Actors">Member, Provider, and ChocAn</p>
+			<p title="Actors">Operator and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>ChocAn data center ran in interactive mode</li>
 				<li>
@@ -260,7 +228,7 @@
 		<div class="usecase">
 			<p title="Use case">ACME updates member records</p>
 			<p title="Context">The processing of payments of ChocAn membership fees has been contracted out to Acme. The Acme computer updates the relevant ChocAn Data Center computer membership records each evening at 9 P.M</p>
-			<p title="Actors">Member, Acme, and ChocAn</p>
+			<p title="Actors">Member, Acme, and ChocAn Server</p>
 			<ol title="Main Success Scenario">
 				<li>Acme records payment of membership fees</li>
 				<li>Acme suspends users whose fees are overdue</li>
