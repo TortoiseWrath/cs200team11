@@ -40,28 +40,36 @@
 				color: #900; /* crimson */
 			}
 
+			h2, ul, p, pre, .usecase>div { padding: 0 40px 0 40px; }
+
 			h2 {
-				padding: 0 40px 0.1em 40px;
+				padding-bottom: 0.1em;
 				margin-bottom: 0.2em;
 				margin-top: 1em;
 				border-bottom: 3pt double #900;
 			}
 
-			/* Formatting for contributors table */
-			table.contributors {
+			ul, p { margin-top: 0.5em; }
+
+			/* Formatting for tables */
+			table {
 				border-collapse: separate;
 				border-spacing: 0.5em;
+				margin-left: auto;
+				margin-right: auto;
 			}
-			table.contributors td {
-				text-align: right;
+			td {
 				padding: 0 0.5em 0 0.9em;
 				line-height: 1em;
 			}
-			table.contributors td:first-child { text-align: left; }
-			table.contributors td:not(:first-child) {
+			td:not(:first-child) {
 				border-left: 1px solid black;
 			}
-			table.contributors tr {	padding-bottom: 0.2em; }
+			tr { padding-bottom: 0.2em; }
+
+			/* Formatting for contributors table */
+			table.contributors td { text-align: right; }
+			table.contributors td:first-child { text-align: left; }
 
 		</style>
 	</head>

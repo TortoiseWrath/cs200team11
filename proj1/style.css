@@ -45,21 +45,33 @@
 
 	ul, p { margin-top: 0.5em; }
 
-	/* Formatting for contributors table */
-	table.contributors {
+	/* Formatting for tables */
+	table {
 		border-collapse: separate;
 		border-spacing: 0.5em;
+		margin-left: auto;
+		margin-right: auto;
 	}
-	table.contributors td {
-		text-align: right;
+	td {
 		padding: 0 0.5em 0 0.9em;
 		line-height: 1em;
 	}
-	table.contributors td:first-child { text-align: left; }
-	table.contributors td:not(:first-child) {
+	td:not(:first-child) {
 		border-left: 1px solid black;
 	}
-	table.contributors tr {	padding-bottom: 0.2em; }
+	tr { padding-bottom: 0.2em; }
+
+	/* Formatting for contributors table */
+	table.contributors td { text-align: right; }
+	table.contributors td:first-child { text-align: left; }
+
+	/* Formatting for links table */
+	table.links td { text-align: center; }
+	table.links {
+		font-size: small;
+		border: 1px solid black;
+		margin-bottom: 1em;
+	}
 
 	/* Formatting for glossary */
 	dt { font-weight: bold; }
@@ -130,6 +142,13 @@
 	}
 	li>ul {	margin-top: 0; }
 
-	/* Formatting for images */
+	/* Formatting for images and links */
+
+	a {
+		color: #900;
+		text-decoration: none;
+	}
+	a:active { color: #090; }
+	a:hover { text-decoration: underline; }
 
 	img { width: 100%; }
