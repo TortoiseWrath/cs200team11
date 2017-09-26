@@ -151,4 +151,9 @@
 	a:active { color: #090; }
 	a:hover { text-decoration: underline; }
 
-	img { width: 100%; }
+	img {
+		display: block;
+		 max-width: 100%;
+		 margin-left: auto;
+		 margin-right: auto;
+	 }
