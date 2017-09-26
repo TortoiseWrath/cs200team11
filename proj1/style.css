@@ -2,6 +2,7 @@
 		height: 100%;
 		margin: 0;
 		padding: 0;
+		float: left;
 	}
 	body {
 		background-color: #900; /* crimson  */
@@ -10,12 +11,11 @@
 		margin: 0;
 		position: relative;
 		font-family: sans-serif;
+		float: left;
 	}
 	body>div {
 		width: 8in;
-		margin-top: 0.25in;
-		margin-left: auto;
-		margin-right: auto;
+		margin: 0.25in auto 0.25in auto;
 		padding: 0.25in;
 		border: 2pt solid #fff;
 		border-radius: 0.25in;
@@ -27,6 +27,7 @@
 		position: relative;
 		white-space: pre-wrap;
 	}
+	.noborders, .noborders * { border: none !important;	}
 
 	h1 {
 		text-align: center;
@@ -64,6 +65,8 @@
 	dt { font-weight: bold; }
 	dt:after { content: ":"; }
 	dd:not(:last-child) { padding-bottom: 1em; }
+
+	/* Formatting for use cases */
 
 	.usecase>*::before {
 		content: attr(title) ":";
@@ -127,6 +130,6 @@
 	}
 	li>ul {	margin-top: 0; }
 
-	img { width: 100%; }
+	/* Formatting for images */
 
-	.noborders, .noborders * { border: none !important;	}
+	img { width: 100%; }
