@@ -79,6 +79,8 @@
 		font-size: small;
 		border: 1px solid black;
 		margin-bottom: 1em;
+		border-radius: 1em;
+		border-bottom-right-radius: 0;
 	}
 	@media print { table.links { display: none; } }
 
