@@ -1,0 +1,167 @@
+	html {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		float: left;
+	}
+	body {
+		background-color: #900; /* crimson  */
+		width: 100%;
+		min-height: 100%;
+		margin: 0;
+		position: relative;
+		font-family: sans-serif;
+		float: left;
+	}
+	body>div {
+		width: 8in;
+		margin: 0.25in auto 0.25in auto;
+		padding: 0.25in;
+		border: 2pt solid #fff;
+		border-radius: 0.25in;
+		background-color: white;
+		box-shadow: inset 0 0 0 2.5pt #900;
+	}
+	pre {
+		display: block;
+		position: relative;
+		white-space: pre-wrap;
+	}
+	.noborders, .noborders * { border: none !important;	}
+
+	h1 {
+		text-align: center;
+		color: #900; /* crimson */
+	}
+
+	h2, h3, ul, p, pre, .usecase>div { padding: 0 40px 0 40px; }
+
+	h2 {
+		padding-bottom: 0.1em;
+		margin-bottom: 0.2em;
+		margin-top: 1em;
+		border-bottom: 3pt double #900;
+	}
+	h3 { margin-bottom: 0.2em; }
+
+	ul, p { margin-top: 0.5em; }
+
+	/* Formatting for tables */
+	table {
+		border-collapse: separate;
+		border-spacing: 0.5em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	td {
+		padding: 0 0.5em 0 0.9em;
+		line-height: 1em;
+	}
+	td:not(:first-child) {
+		border-left: 1px solid black;
+	}
+	tr { padding-bottom: 0.2em; }
+
+	/* Formatting for contributors table */
+	table.contributors td { text-align: right; }
+	table.contributors td:first-child { text-align: left; }
+
+	table.contributors tr.submitter>td:first-of-type { font-weight: bold; }
+	table.contributors tr.submitter+tr.submitter>td:first-of-type {
+		font-size: small;
+		font-style: italic;
+		padding-left: 2.9em; /* 0.9em standard + 2em indent */
+	}
+
+	/* Formatting for links table */
+	table.links td { text-align: center; }
+	table.links {
+		font-size: small;
+		border: 1px solid black;
+		margin-bottom: 1em;
+	}
+
+	/* Formatting for glossary */
+	dt { font-weight: bold; }
+	dt:after { content: ":"; }
+	dd:not(:last-child) { padding-bottom: 1em; }
+
+	/* Formatting for use cases */
+
+	.usecase>*::before {
+		content: attr(title) ":";
+		font-weight: bold;
+		display: block;
+		margin-left: -40px;
+	}
+	.usecase>* {
+		margin: 0.5em 0 0 0;
+	}
+	.usecase>*:first-child::before {
+		display: inline;
+		padding-right: 1em;
+	}
+	.usecase>*:first-child {
+		padding-top: 0.5em;
+		font-weight: bold;
+	}
+	.usecase:not(:last-of-type) {
+		border-bottom: 1px solid #900;
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+	}
+	.usecase ol {
+		counter-reset: step;
+		list-style-type: none;
+	}
+	.usecase li::before {
+		counter-increment: step;
+		content: counters(step, ".") ".";
+		display: inline-block;
+		margin-left: -40px;
+		min-width: 40px;
+		text-align: center;
+	}
+	.usecase li {
+		margin-left: -3px;
+	}
+	.usecase div>ol {
+		margin-left: -40px;
+		margin-bottom: 0.5em;
+		margin-top: 0;
+		counter-reset: extension;
+	}
+	.usecase div>ol:last-child { margin-bottom: 0; }
+	.usecase div ol {
+		counter-reset: step;
+	}
+	.usecase div>ol>li {
+		counter-increment: extension;
+	}
+	.usecase div>ol>li::before {
+		content: attr(data-step) counter(extension, lower-alpha) ".";
+	}
+	.usecase div>ol>li>ol li::before {
+		content: attr(data-step) counter(extension, lower-alpha) "." counter(step) ".";
+	}
+	.usecase ul>li::before {
+		counter-increment: none;
+		content: none;
+	}
+	li>ul {	margin-top: 0; }
+
+	/* Formatting for images and links */
+
+	a {
+		color: #900;
+		text-decoration: none;
+	}
+	a:active { color: #090; }
+	a:hover { text-decoration: underline; }
+
+	img {
+		display: block;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	 }
