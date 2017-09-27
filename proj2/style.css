@@ -80,75 +80,7 @@
 		border: 1px solid black;
 		margin-bottom: 1em;
 	}
-
-	/* Formatting for glossary */
-	dt { font-weight: bold; }
-	dt:after { content: ":"; }
-	dd:not(:last-child) { padding-bottom: 1em; }
-
-	/* Formatting for use cases */
-
-	.usecase>*::before {
-		content: attr(title) ":";
-		font-weight: bold;
-		display: block;
-		margin-left: -40px;
-	}
-	.usecase>* {
-		margin: 0.5em 0 0 0;
-	}
-	.usecase>*:first-child::before {
-		display: inline;
-		padding-right: 1em;
-	}
-	.usecase>*:first-child {
-		padding-top: 0.5em;
-		font-weight: bold;
-	}
-	.usecase:not(:last-of-type) {
-		border-bottom: 1px solid #900;
-		padding-bottom: 1em;
-		margin-bottom: 1em;
-	}
-	.usecase ol {
-		counter-reset: step;
-		list-style-type: none;
-	}
-	.usecase li::before {
-		counter-increment: step;
-		content: counters(step, ".") ".";
-		display: inline-block;
-		margin-left: -40px;
-		min-width: 40px;
-		text-align: center;
-	}
-	.usecase li {
-		margin-left: -3px;
-	}
-	.usecase div>ol {
-		margin-left: -40px;
-		margin-bottom: 0.5em;
-		margin-top: 0;
-		counter-reset: extension;
-	}
-	.usecase div>ol:last-child { margin-bottom: 0; }
-	.usecase div ol {
-		counter-reset: step;
-	}
-	.usecase div>ol>li {
-		counter-increment: extension;
-	}
-	.usecase div>ol>li::before {
-		content: attr(data-step) counter(extension, lower-alpha) ".";
-	}
-	.usecase div>ol>li>ol li::before {
-		content: attr(data-step) counter(extension, lower-alpha) "." counter(step) ".";
-	}
-	.usecase ul>li::before {
-		counter-increment: none;
-		content: none;
-	}
-	li>ul {	margin-top: 0; }
+	@media print { table.links { display: none; } }
 
 	/* Formatting for images and links */
 
