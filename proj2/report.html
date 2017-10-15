@@ -68,38 +68,16 @@
 		<h2 id="usecases">Use cases</h2>
 
 		<div class="usecase">
-			<p title="Use case">Member card swiped to receive services</p>
-			<p title="Context">To receive services a member hands his or her card to the provider, who slides the card through the card reader which validates the members status.</p>
-			<p title="Actors">Member, provider, and ChocAn Data Center</p>
-			<ol title="Main Success Scenario">
-				<li>Member hands card to service provider</li>
-				<li>Provider slides card through card reader on terminal
-					<ol>
-						<li>Terminal dials ChocAn data center</li>
-						<li>ChocAn data center verifies member number</li>
-					</ol>
-				</li>
-				<li><code>Validated</code> appears on display</li>
-			</ol>
-			<div title="Extensions">
-				<ol>
-					<li data-step="2.2"> Number is not valid
-						<ol>
-							<li data-step="2.2"> <code>Invalid Number</code> displayed </li>
-							<li data-step="2.2"> <code>Member Suspended</code> displayed, indicating fees are owed and member status set to &quot;suspended&quot; (the Member Status is in the <code>true</code> state)</li>
-						</ol>
-					</li>
-				</ol>
-			</div>
-		</div>
-
-		<div class="usecase">
 			<p title="Use case">Bill ChocAn for health care services provided to member</p>
 			<p title="Context">To bill ChocAn after a health care service has been provided to the member, the provider again passes the card through the card reader or keys in the member number. When the word Validated appears, the provider keys in the date the service was provided.</p>
 			<p title="Actors">Member, provider, and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
 				<li>Member hands card to service provider</li>
 				<li>Provider slides card through card reader on terminal or keys in member number</li>
+				<ol>
+						<li>Terminal dials ChocAn data center</li>
+						<li>ChocAn data center verifies member number</li>
+				</ol>
 				<li><code>Validated</code> appears on display</li>
 				<li>Provider keys in date service was provided in format <code>MM-DD-YYYY</code></li>
 				<li>Provider uses the Provider Directory to look up the appropriate six-digit service code corresponsing to the service provided</li>
@@ -127,6 +105,12 @@
 			<div title="Extensions">
 				<ol>
 					<li data-step="7.1"> If the provider has entered a nonexistent code, an error message is printed</li>
+					<li data-step="2.2"> Number is not valid
+						<ol>
+							<li data-step="2.2"> <code>Invalid Number</code> displayed </li>
+							<li data-step="2.2"> <code>Member Suspended</code> displayed, indicating fees are owed and member status set to &quot;suspended&quot; (the Member Status is in the <code>true</code> state)</li>
+						</ol>
+					</li>
 				</ol>
 			</div>
 		</div>
