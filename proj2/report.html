@@ -84,11 +84,8 @@
 				<li>Provider uses the Provider Directory to look up the appropriate six-digit service code corresponsing to the service provided</li>
 				<li>Provider keys in the service code</li>
 				<li>Software product then displays the name of the service corresponding to the code (up to 20 characters)
-					<ol>
-						<li> Software product asks the provider to verify that this is indeed the service that was provided </li>
-					</ol>
-				</li>
-				<li>Provider enters comments about the service provided (optional)</li>
+				<li>Provider verifies that this is indeed the service that was provided </li>
+				<li>Provider enters comments about the service provided (up to 100 characters)</li>
 				<li>Software product writes a record to disk that includes the following fields:
 					<ul>
 						<li>Current date and time (<code>MM-DD-YYYY HH:MM:SS</code>)</li>
@@ -100,16 +97,36 @@
 					</ul>
 				</li>
 				<li>Software product looks up the fee to be paid for that service and displays it on the provider's terminal</li>
-				<li>For verification purposes, the provider has a form on which to enter the current date and time, the date the service was provided, member name and number, service code, and fee to be paid</li>
-				<li>At the end of the week, the provider totals the fees to verify the amount to be paid to that provider by ChocAn for that week</li>
+				<!-- <li>For verification purposes, the provider has a form on which to enter the current date and time, the date the service was provided, member name and number, service code, and fee to be paid</li>
+				<li>At the end of the week, the provider totals the fees to verify the amount to be paid to that provider by ChocAn for that week</li> -->
 			</ol>
 			<div title="Extensions">
 				<ol>
-					<li data-step="7.1"> If the provider has entered a nonexistent code, an error message is printed</li>
-					<li data-step="2.2"> Number is not valid
+					<li data-step="2.2">Number does not exist
 						<ol>
-							<li data-step="2.2"> <code>Invalid Number</code> displayed </li>
-							<li data-step="2.2"> <code>Member Suspended</code> displayed, indicating fees are owed and member status set to &quot;suspended&quot; (the Member Status is in the <code>true</code> state)</li>
+							<li data-step="2.2"><code>Invalid Number</code> displayed </li>
+							<li data-step="2.2">End use case</li>
+						</ol>
+					</li>
+					<li data-step="2.2">Member Status is in the <code>true</code> state (member is suspended)
+						<ol>
+							<li data-step="2.2"><code>Member Suspended</code> displayed</li>
+							<li data-step="2.2">End use case</li>
+						</ol>
+					</li>
+				</ol>
+				<ol>
+					<li data-step="7">Code does not exist
+						<ol>
+							<li data-step="7"><code>Invalid Code</code> displayed</li>
+							<li data-step="7">Return to step 6</li>
+						</ol>
+					</li>
+				</ol>
+				<ol>
+					<li data-step="8">Provider states service displayed is incorrect
+						<ol>
+							<li data-step="8">Return to step 6</li>
 						</ol>
 					</li>
 				</ol>
