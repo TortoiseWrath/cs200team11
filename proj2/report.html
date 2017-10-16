@@ -86,6 +86,7 @@
 				<li>Software product then displays the name of the service corresponding to the code (up to 20 characters)
 				<li>Provider verifies that this is indeed the service that was provided </li>
 				<li>Provider enters comments about the service provided (up to 100 characters)</li>
+				<li>Software product looks up the fee to be paid for the service</li>
 				<li>Software product writes a record to disk that includes the following fields:
 					<ul>
 						<li>Current date and time (<code>MM-DD-YYYY HH:MM:SS</code>)</li>
@@ -94,9 +95,10 @@
 						<li>Member number (9 digits)</li>
 						<li>Service code (6 digits)</li>
 						<li>Comments (up to 100 characters)</li>
+						<li>Fee (up to $999.99)</li>
 					</ul>
 				</li>
-				<li>Software product looks up the fee to be paid for that service and displays it on the provider's terminal</li>
+				<li>Software product displays the fee to be paid for the service on the provider's terminal</li>
 				<!-- <li>For verification purposes, the provider has a form on which to enter the current date and time, the date the service was provided, member name and number, service code, and fee to be paid</li>
 				<li>At the end of the week, the provider totals the fees to verify the amount to be paid to that provider by ChocAn for that week</li> -->
 			</ol>
