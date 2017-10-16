@@ -172,29 +172,6 @@
 		</div>
 
 		<div class="usecase">
-			<p title="Use case">Member report sent</p>
-			<p title="Context">List of services provided sent to member from ChocAn</p>
-			<p title="Actors">Member and ChocAn Data Center</p>
-			<ol title="Main Success Scenario">
-				<li>Report sent to each member that received services in last week</li>
-				<li>Report also sent as e-mail attachment
-					<ul>
-						 <li>Member name (25 characters)</li>
-						 <li>Member number (9 digits)</li>
- 						 <li>Member street address (25 characters)</li>
- 						 <li>Member city (14 characters)</li>
- 						 <li>Member state (2 letters)</li>
- 						 <li>Member ZIP code (5 digits)</li>
-						 <li>For each service provided, the following details are required:</li>
-						 <li>Date of service (<code>MM–DD–YYYY</code>)</li>
-						 <li>Provider name (25 characters)</li>
- 						 <li>Service name (20 characters)</li>
- 					</ul>
- 				 </li>
-				</ol>
-		</div>
-
-		<div class="usecase">
 			<p title="Use case">Send provider reports</p>
 			<p title="Context">List of services provided to members sent to each provider</p>
 			<p title="Actors">Provider, Manager and ChocAn Data Center</p>
@@ -236,6 +213,31 @@
 				<li>Generate a report for each provider with all data for that provider</li>
 				<li>Send the summary report to the manager</li>
 				<li>Send the provider reports to each provider</li>
+				</ol>
+		</div>
+
+		<div class="usecase">
+			<p title="Use case">Send member reports</p>
+			<p title="Context">List of services provided sent to member from ChocAn</p>
+			<p title="Actors">Member and ChocAn Data Center</p>
+			<ol title="Main Success Scenario">
+				<li>Dial ChocAn Data Center server</li>
+				<li>Retrieve data for each member that received services in the last week and each service they have received
+					<ul>
+						<li>Member name (25 characters)</li>
+						<li>Member number (9 digits)</li>
+						<li>Member street address (25 characters)</li>
+						<li>Member city (14 characters)</li>
+						<li>Member state (2 letters)</li>
+						<li>Member ZIP code (5 digits)</li>
+						<li>For each service provided, the following details are required:
+						<ul><li>Date of service (<code>MM–DD–YYYY</code>)</li>
+						<li>Provider name (25 characters)</li>
+						<li>Service name (20 characters)</li></ul></li>
+					</ul>
+				</li>
+				<li>Generate a report for each member listing all data for that member
+				<li>Send each member their report
 				</ol>
 		</div>
 
