@@ -64,7 +64,11 @@
 
 	/* Formatting for contributors table */
 	table.contributors td { text-align: right; }
-	table.contributors td:first-child { text-align: left; }
+	table.contributors td:first-child {
+		text-align: left;
+		white-space: nowrap;
+	}
+	table.contributors td:nth-child(2) { max-width: 3in; }
 
 	table.contributors tr.submitter>td:first-of-type { font-weight: bold; }
 	table.contributors tr.submitter+tr.submitter>td:first-of-type {
