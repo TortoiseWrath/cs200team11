@@ -149,13 +149,20 @@
 			<p title="Context">At midnight on Friday, the main accounting procedure is run at the ChocAn Data Center. It reads the week’s file of services provided and prints a number of reports. Each report also can be run individually at the request of a ChocAn manager at any time during the week.</p>
 			<p title="Actors">Member, Provider, Manager, and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
-				<li>Main accounting procedure run at midnight on Friday
+				<li>Main accounting procedure starts at midnight on Friday
 					<ol>
-						<li>ChocAn manager can request report at any time</li>
+						<li>(Possibly a separate use case?)ChocAn manager can request report at any time</li>
 					</ol>
 				</li>
-				<li>Read the weeks file of services provided</li>
-				<li>Prints a number of reports</li>
+				<li>Read the last week's member and provider data</li>
+				<li>Generate member reports containing the last week's data for each member</li>
+				<li>Send member reports to members</li>
+				<li>Generate provider reports containing the last week's data for each provider</li>
+				<li>Send provider reports to providers</li>
+				<li>Write EFT data to disk</li>
+				<li>Generate summary report of accounts payable</li>
+				<li>Send summary reports to managers</li>
+				<li>Print total number of active providers, total number of consultations, and total fees to be paid</li>
 			</ol>
 		</div>
 
