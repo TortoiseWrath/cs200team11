@@ -358,9 +358,121 @@
 
 		<img src="Update.png" alt="Member/Provider records are updated">
 
-		<h2 id=classdiagram>Class Diagram</h2>
+		<h2 id="classdiagram">Class diagram</h2>
+
+		<p>Draw the complete UML class diagram of the ChocAn system by
+specifying all classes of the
+system and their relationships
+. This will typically include more
+classes than you had
+previously
+identified during the analysis phase. For each class, show
+all the attributes with their type and
+visibility
+modifier. You should
+also show
+all methods that you identified necessary with their
+full signature (with parameters and return types) an
+d their visibility modifiers
+. All associations
+must be clearly marked with
+name, multiplicities, role names, and directions
+. Each use case
+must be initiated by a distinct public method in your class
+diagram, which may invoke other
+private ones. Note that i
+f the class diagram is too big, you may
+use
+aliases
+and packages
+to
+simplify the reading of the diagram. Write any
+assumption that you feel will help understand
+your design decisions.
 
 		<img src="classdiagram.png" alt="Class Diagram">
+
+		<h2 id="sequencediagrams">Sequence diagrams</h2>
+
+		<p>Draw one UML sequence diagram per use case you had identified.
+Remember that a sequence
+diagram corresponding to a use case is initiated by an actor
+who triggers the corresponding
+public method. Also, recall that a sequence diagram is not a full implementation, but only
+shows an overview of the
+messages sent between o
+bjects.
+Make sure the sequence diagrams
+are consistent with your class diagram
+, meaning any message you send to an object should be
+a method of
+the
+receiver object
+.
+Note that you may need to revise the use cases
+previously
+produced and revised during assig
+nments 1 and 2 as your design decisions should be based on
+them.
+
+		<p>Source: <a href="project3.vpp">project3.vpp</a></p>
+
+		<h3>Bill ChocAn for services</h3>
+
+		<img src="BillChocAnSequence.png" alt="Bill ChocAn for services">
+
+		<h3>Send provider reports</h3>
+
+		<img src="ProviderReportSequence.png" alt="Provider Report Sent">
+
+		<h3>Send member reports</h3>
+
+		<img src="MemberReportSequence.png" alt="Member Report Sent">
+
+		<h3>Writing EFT</h3>
+
+		<img src="WritingEFTSequence.png" alt="Writing EFT">
+
+		<h3>Main accounting procedure run</h3>
+
+		<img src="MainAccountingProcedureSequence.png" alt="Main accounting procedure run">
+
+		<h3>Provider Directory request</h3>
+
+		<img src="ProviderDirectoryRequestSequence.png" alt="Provider Directory request">
+
+		<h3>Provider records are added, deleted, or updated</h3>
+
+		<img src="ProviderRecordsModifiedSequence.png" alt="Provider records are added, deleted, or changed">
+
+		<h3>Member records are added, deleted, or updated</h3>
+
+		<img src="MemberRecordsModifiedSequence.png" alt="Member records are added, deleted, or changed">
+
+		<h3>Add</h3>
+
+		<img src="AddSequence.png" alt="Member/Provider records are added">
+
+		<h3>Delete</h3>
+
+		<img src="DeleteSequence.png" alt="Member/Provider records are deleted">
+
+		<h3>Update</h3>
+
+		<img src="UpdateSequence.png" alt="Member/Provider records are updated">
+
+		<h3>Coupling and cohesion</h3>
+
+		<p>To verify your design,
+examine the coupling and cohesion issues
+. Discuss the coupling and
+cohesion of your design. Argument in a paragraph of
+150 words
+(+/
+-
+10%) why your design is
+"good"
+.
 
 	</div>
 </body>
