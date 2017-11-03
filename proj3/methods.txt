@@ -3,12 +3,12 @@ In the Bill ChocAn for Services sequence diagram, I used these methods:
 Bill for Services Controller:
 	Constructor requires provider number
 	void setMember(string memberNumber) //sets the member number
-	void serviceCorrect(bool correct) //apply "service correct" status indicated by provider to current bill
 	private string getStatusMessage(Member member) //returns the message to display on the provider terminal based on status of member
 	private string getServiceValidationMessage(Service service) //returns the message to display to the provider to verify the service is correct
-	ProvidedServiceRecord generateProvidedServiceRecord(string serviceDate, string providerNumber, string memberNumber, string serviceCode, string Comments, int Fee) //fee in cents
+	private ProvidedServiceRecord generateProvidedServiceRecord() //uses instance variables
 
 Provider Terminal:
+	string getProviderNumber() //returns the provider number
 	string requestServiceDate() //asks the provider for the service date in format MM-DD-YYYY and returns their input
 	string requestServiceCode() //asks the provider for the service code (6 digits) and returns their input
 	bool requestServiceCorrect() //asks the provider to verify that the service displayed in the previous message is correct and returns their input
