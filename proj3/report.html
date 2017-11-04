@@ -54,6 +54,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Bill ChocAn for health care services provided to member</p>
+			<span class="diagramlink"><a href="#BCAD">Activity Diagram</a>  <a href="#BCSD">Sequence Diagram</a></span>
 			<p title="Context">To bill ChocAn after a health care service has been provided to the member, the provider again passes the card through the card reader or keys in the member number. When the word Validated appears, the provider keys in the date the service was provided.</p>
 			<p title="Actors">Member, provider, and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -122,6 +123,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Provider Directory Request</p>
+			<span class="diagramlink"><a href="#DRAD">Activity Diagram</a>  <a href="#DRSD">Sequence Diagram</a></span>
 			<p title="Context">Provider makes request to software for the provider directory, an alphabetically ordered list of service names and corresponding service codes and fees. The Provider Directory is sent to the provider as an e-mail attachment.</p>
 			<p title="Actors">Provider and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -133,6 +135,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Main accounting procedure run</p>
+			<span class="diagramlink"><a href="#MAPAD">Activity Diagram</a>  <a href="#MAPSD">Sequence Diagram</a></span>
 			<p title="Context">At midnight on Friday, the main accounting procedure is run at the ChocAn Data Center. It reads the week’s file of services provided and prints a number of reports. Each report also can be run individually at the request of a ChocAn manager at any time during the week.</p>
 			<p title="Actors">Member, Provider, Manager, and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -154,6 +157,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Writing Electronic Funds Transfer (EFT)</p>
+			<span class="diagramlink"><a href="#EFTAD">Activity Diagram</a>  <a href="#EFTSD">Sequence Diagram</a></span>
 			<p title="Context">A record consisting of electronic funds transfer (EFT) data is then written to a disk; banking computers will later ensure that each provider’s bank account is credited with the appropriate amount.</p>
 			<p title="Actors">ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -168,6 +172,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Generate and send provider reports</p>
+			<span class="diagramlink"><a href="#PRAD">Activity Diagram</a>  <a href="#PRSD">Sequence Diagram</a></span>
 			<p title="Context">List of services provided to members sent to each provider</p>
 			<p title="Actors">Provider, Manager and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -213,6 +218,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Generate and send member reports</p>
+			<span class="diagramlink"><a href="#MRAD">Activity Diagram</a>  <a href="#MRSD">Sequence Diagram</a></span>
 			<p title="Context">List of services provided sent to member from ChocAn</p>
 			<p title="Actors">Member and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -238,6 +244,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Provider records are added, deleted, or updated</p>
+			<span class="diagramlink"><a href="#PRMAD">Activity Diagram</a>  <a href="#PRMSD">Sequence Diagram</a></span>
 			<p title="Context">During the day, the software at the ChocAn Data Center is run in interactive mode to allow operators to add, delete, or update provider records</p>
 			<p title="Actors">Operator and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -248,6 +255,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Member records are added, deleted, or updated</p>
+			<span class="diagramlink"><a href="#MRMAD">Activity Diagram</a>  <a href="#MRMSD">Sequence Diagram</a></span>
 			<p title="Context">During the day, the software at the ChocAn Data Center is run in interactive mode to allow operators to add, delete, or update member records</p>
 			<p title="Actors">Operator and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -258,6 +266,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Add</p>
+			<span class="diagramlink"><a href="#AAD">Activity Diagram</a>  <a href="#ASD">Sequence Diagram</a></span>
 			<p title="Context">Operator at ChocAn can add new members or providers</p>
 			<p title="Actors">Operator and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -269,6 +278,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Delete</p>
+			<span class="diagramlink"><a href="#DAD">Activity Diagram</a>  <a href="#DSD">Sequence Diagram</a></span>
 			<p title="Context">Operator at ChocAn can delete new members or providers</p>
 			<p title="Actors">Operator and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -280,6 +290,7 @@
 
 		<div class="usecase">
 			<p title="Use case">Update</p>
+			<span class="diagramlink"><a href="#UAD">Activity Diagram</a>  <a href="#USD">Sequence Diagram</a></span>
 			<p title="Context">Operator at ChocAn can update new members or providers</p>
 			<p title="Actors">Operator and ChocAn Data Center</p>
 			<ol title="Main Success Scenario">
@@ -314,47 +325,47 @@
 
 		<img src="MainActivityDiagram.png" alt="Main Activity Diagram">
 
-		<h3>Bill ChocAn for services</h3>
+		<h3 id="BCAD">Bill ChocAn for services</h3>
 
 		<img src="BillChocAn.png" alt="Bill ChocAn for services">
 
-		<h3>Send provider reports</h3>
+		<h3 id="PRAD">Send provider reports</h3>
 
 		<img src="ProviderReport.png" alt="Provider Report Sent">
 
-		<h3>Send member reports</h3>
+		<h3 id="MRAD">Send member reports</h3>
 
 		<img src="MemberReport.png" alt="Member Report Sent">
 
-		<h3>Writing EFT</h3>
+		<h3 id="EFTAD">Writing EFT</h3>
 
 		<img src="WritingEFT.png" alt="Writing EFT">
 
-		<h3>Main accounting procedure run</h3>
+		<h3 id="MAPAD">Main accounting procedure run</h3>
 
 		<img src="MainAccountingProcedure.png" alt="Main accounting procedure run">
 
-		<h3>Provider Directory request</h3>
+		<h3 id="DRAD">Provider Directory request</h3>
 
 		<img src="ProviderDirectoryRequest.png" alt="Provider Directory request">
 
-		<h3>Provider records are added, deleted, or updated</h3>
+		<h3 id="PRMAD">Provider records are added, deleted, or updated</h3>
 
 		<img src="ProviderRecordsModified.png" alt="Provider records are added, deleted, or changed">
 
-		<h3>Member records are added, deleted, or updated</h3>
+		<h3 id="MRMAD">Member records are added, deleted, or updated</h3>
 
 		<img src="MemberRecordsModified.png" alt="Member records are added, deleted, or changed">
 
-		<h3>Add</h3>
+		<h3 id="AAD">Add</h3>
 
 		<img src="Add.png" alt="Member/Provider records are added">
 
-		<h3>Delete</h3>
+		<h3 id="DAD">Delete</h3>
 
 		<img src="Delete.png" alt="Member/Provider records are deleted">
 
-		<h3>Update</h3>
+		<h3 id="UAD">Update</h3>
 
 		<img src="Update.png" alt="Member/Provider records are updated">
 
@@ -417,47 +428,47 @@ them.
 
 		<p>Source: <a href="project3.vpp">project3.vpp</a></p>
 
-		<h3>Bill ChocAn for services</h3>
+		<h3 id="BCSD">Bill ChocAn for services</h3>
 
 		<img src="BillChocAnSequence.png" alt="Bill ChocAn for services">
 
-		<h3>Send provider reports</h3>
+		<h3 id="PRSD">Send provider reports</h3>
 
 		<img src="ProviderReportSequence.png" alt="Provider Report Sent">
 
-		<h3>Send member reports</h3>
+		<h3 id="MRSD">Send member reports</h3>
 
 		<img src="MemberReportSequence.png" alt="Member Report Sent">
 
-		<h3>Writing EFT</h3>
+		<h3 id="EFTSD">Writing EFT</h3>
 
 		<img src="WritingEFTSD.png" alt="Writing EFT">
 
-		<h3>Main accounting procedure run</h3>
+		<h3 id="MAPSD">Main accounting procedure run</h3>
 
 		<img src="MainAccountingProcedureSD.png" alt="Main accounting procedure run">
 
-		<h3>Provider Directory request</h3>
+		<h3 id="DRSD">Provider Directory request</h3>
 
 		<img src="ProviderDirectoryRequestSD.png" alt="Provider Directory request">
 
-		<h3>Provider records are added, deleted, or updated</h3>
+		<h3 id="PRMSD">Provider records are added, deleted, or updated</h3>
 
 		<img src="ProviderRecordsModifiedSequence.png" alt="Provider records are added, deleted, or changed">
 
-		<h3>Member records are added, deleted, or updated</h3>
+		<h3 id="MRMSD">Member records are added, deleted, or updated</h3>
 
 		<img src="MemberRecordsModifiedSequence.png" alt="Member records are added, deleted, or changed">
 
-		<h3>Add</h3>
+		<h3 id="ASD">Add</h3>
 
 		<img src="AddSequence.png" alt="Member/Provider records are added">
 
-		<h3>Delete</h3>
+		<h3 id="DSD">Delete</h3>
 
 		<img src="DeleteSequence.png" alt="Member/Provider records are deleted">
 
-		<h3>Update</h3>
+		<h3 id="USD">Update</h3>
 
 		<img src="UpdateSequence.png" alt="Member/Provider records are updated">
 
