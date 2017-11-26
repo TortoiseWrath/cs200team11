@@ -1,6 +1,8 @@
 package team11project4;
 
 public class RecordDeleteController {
+	
+	ChocAnDataCenter db;
 
 	public RecordDeleteController() {
 		// TODO Auto-generated constructor stub
