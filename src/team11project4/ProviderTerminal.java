@@ -7,12 +7,14 @@ package team11project4;
  * @author sdgillen
  *
  */
-public class Terminal {
+public class ProviderTerminal {
+	
+	String providerNumber;
 
 	/**
 	 * 
 	 */
-	public Terminal() {
+	public ProviderTerminal() {
 		// TODO Auto-generated constructor stub
 	}
 
