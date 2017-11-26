@@ -6,11 +6,11 @@ public class RecordDeleteController {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void deleteRecord(ProviderRecord record) {
+	public void deleteRecord(Provider record) {
 		
 	}
 	
-	public void deleteRecord(MemberRecord record) {
+	public void deleteRecord(Member record) {
 		
 	}
 

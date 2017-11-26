@@ -9,21 +9,14 @@ package team11project4;
  */
 public class ProviderTerminal {
 	
-	String providerNumber;
+	String providerNumber = "1";
+	ChocAnDataCenter db;
 
 	/**
 	 * 
 	 */
 	public ProviderTerminal() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		db = new ChocAnDataCenter();
 	}
 
 }
