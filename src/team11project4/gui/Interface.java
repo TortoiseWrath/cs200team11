@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.geometry.Pos;
 
 public class Interface extends Application{
 	
@@ -45,6 +46,7 @@ public class Interface extends Application{
 		opBtn.setOnAction(e -> window.setScene(UserScenes.createOperatorScene(scene)));
 		
 		VBox root = new VBox();
+		root.setAlignment(Pos.BASELINE_CENTER);
 		root.getChildren().addAll(instr, memBtn, provBtn, manBtn, opBtn);
 		
 		scene = new Scene(root, 600, 400);
