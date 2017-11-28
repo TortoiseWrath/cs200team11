@@ -21,8 +21,8 @@ public class Interface extends Application{
 	private Scene scene;
 	
 	/**
-	 * The launch() function is the only thing needed in main().
-	 * All program logic will be handled with event handlers.
+	 * The launch() function is needed to start the interface window.
+	 * Any initialization needed needs to be done before launch() is called.
 	 */
 	public static void main(String args[]) {
 		launch(args);
