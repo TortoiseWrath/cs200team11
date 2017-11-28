@@ -41,6 +41,8 @@ public class Interface extends Application{
 		
 		memBtn.setOnAction(e -> window.setScene(UserScenes.createMemberScene(scene)));
 		provBtn.setOnAction(e -> window.setScene(UserScenes.createProviderScene(scene)));
+		manBtn.setOnAction(e -> window.setScene(UserScenes.createManagerScene(scene)));
+		opBtn.setOnAction(e -> window.setScene(UserScenes.createOperatorScene(scene)));
 		
 		VBox root = new VBox();
 		root.getChildren().addAll(instr, memBtn, provBtn, manBtn, opBtn);
