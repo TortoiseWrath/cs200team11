@@ -1,4 +1,9 @@
-package team11project4;
+/**
+ * Author: Hunter Allen (jhallen3@crimson.ua.edu)
+ * Class Description: A class to initialize a graphical user interface for the project
+ */
+
+package team11project4.gui;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -11,8 +16,13 @@ import javafx.stage.Stage;
 
 public class Interface extends Application{
 	
-	Stage window = new Stage();
+	protected static Stage window;
+	private Scene scene;
 	
+	/**
+	 * The launch() function is the only thing needed in main().
+	 * All program logic will be handled with event handlers.
+	 */
 	public static void main(String args[]) {
 		launch(args);
 	}
@@ -29,12 +39,15 @@ public class Interface extends Application{
 		Button manBtn = new Button("Manager");
 		Button opBtn = new Button("Operator");
 		
+		memBtn.setOnAction(e -> window.setScene(UserScenes.createMemberScene(scene)));
+		provBtn.setOnAction(e -> window.setScene(UserScenes.createProviderScene(scene)));
+		
 		VBox root = new VBox();
 		root.getChildren().addAll(instr, memBtn, provBtn, manBtn, opBtn);
 		
-		Scene userSelect = new Scene(root, 600, 400);
+		scene = new Scene(root, 600, 400);
 		
-		window.setScene(userSelect);
+		window.setScene(scene);
 		
 		window.show();
 		
