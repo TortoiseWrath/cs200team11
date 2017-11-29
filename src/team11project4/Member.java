@@ -15,7 +15,7 @@ public class Member {
 	public String memberZip;
 
 	/**
-	 * Constructor for creating new a new member. Requires a string for each of the member's name,
+	 * Constructor for creating new a new member object. Requires a string for each of the member's name,
 	 * address, city, state, and zip. Also requires a MemberStatus type for the member's status.
 	 * 
 	 * @param number	A string representing the member's unique number
