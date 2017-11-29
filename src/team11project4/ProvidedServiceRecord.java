@@ -1,8 +1,11 @@
 package team11project4;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ProvidedServiceRecord {
+public class ProvidedServiceRecord implements Serializable {
+	
+	private static final long serialVersionUID = 2609221788198234892L;
 	
 	public Date dateAdded;
 	public Date dateProvided;
@@ -17,7 +20,10 @@ public class ProvidedServiceRecord {
 	}
 	
 	public Boolean writeRecordToDisk() {
-		return false;
+		ChocAnDataCenter db = new ChocAnDataCenter();
+		Member oldMember = db.getMember(memberNumber);
+		Member newMember = db.getMember(memberNumber);
+		return db.updateMember(oldMember, newMember);
 	}
 
 }

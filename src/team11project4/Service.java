@@ -1,6 +1,13 @@
 package team11project4;
 
-public class Service {
+import java.io.Serializable;
+
+public class Service implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4069702931803051311L;
 	
 	public String serviceCode;
 	public String serviceName;
@@ -18,6 +25,10 @@ public class Service {
 		this.serviceCode = code;
 		this.serviceName = name;
 		this.serviceFee = fee;
+	}
+	
+	public Service() {
+		//null
 	}
 
 }

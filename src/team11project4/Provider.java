@@ -1,6 +1,10 @@
 package team11project4;
 
-public class Provider {
+import java.io.Serializable;
+
+public class Provider implements Serializable {
+	
+	private static final long serialVersionUID = 6143371899045034905L;
 	
 	public String providerNumber;
 	public String providerName;

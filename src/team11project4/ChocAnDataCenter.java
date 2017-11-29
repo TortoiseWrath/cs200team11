@@ -36,6 +36,7 @@ public class ChocAnDataCenter implements Serializable {
 		catch (FileNotFoundException e) { //No database file
 			// Empty ArrayLists for services, members, providers
 			services = new ArrayList<Service>();
+			System.out.println(services);
 			members = new ArrayList<Member>();
 			providers = new ArrayList<Provider>();
 			
@@ -71,21 +72,21 @@ public class ChocAnDataCenter implements Serializable {
 	
 	public Service getService(String serviceNumber) {
 		for (Service s : services) { //Iterate over services
-			if(s.serviceCode == serviceNumber) return s; //Look for one with matching code
+			if(s.serviceCode.equals(serviceNumber)) return s; //Look for one with matching code
 		}
 		return null; //No matching service
 	}
 	
 	public Member getMember(String memberNumber) {
 		for (Member m : members) {
-			if(m.memberNumber == memberNumber) return m;
+			if(m.memberNumber.equals(memberNumber)) return m;
 		}
 		return null; //No matching member
 	}
 	
 	public Provider getProvider(String providerNumber) {
 		for (Provider p : providers) {
-			if(p.providerNumber == providerNumber) return p;
+			if(p.providerNumber.equals(providerNumber)) return p;
 		}
 		return null; //No matching provider
 	}

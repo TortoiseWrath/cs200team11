@@ -32,7 +32,7 @@ public class Interface extends Application{
 	@Override
 	public void start(Stage arg0) throws Exception {
 		window = arg0;
-		window.setTitle("Chocohalics Anonymous");
+		window.setTitle("Chocoholics Anonymous");
 		window.setOnCloseRequest(e -> exitProgram());
 		
 		Label instr = new Label("Select your user type:");

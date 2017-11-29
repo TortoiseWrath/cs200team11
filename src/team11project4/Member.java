@@ -1,6 +1,14 @@
 package team11project4;
 
-public class Member {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Member implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -504491935584440369L;
 
 	public enum MemberStatus {
 		ACTIVE, SUSPENDED
@@ -13,6 +21,7 @@ public class Member {
 	public String memberCity;
 	public String memberState;
 	public String memberZip;
+	public ArrayList<ProvidedServiceRecord> providedServices;
 
 	/**
 	 * Constructor for creating new a new member object. Requires a string for each of the member's name,
@@ -35,6 +44,10 @@ public class Member {
 		this.memberState = state;
 		this.memberZip = zip;
 		this.memberStatus = status;
+	}
+	
+	public Member() {
+		//null
 	}
 
 }
