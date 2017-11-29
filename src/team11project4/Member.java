@@ -13,6 +13,10 @@ public class Member {
 	public String memberCity;
 	public String memberState;
 	public String memberZip;
+	
+	public Member() {
+		
+	}
 
 	/**
 	 * Constructor for creating new a new member object. Requires a string for each of the member's name,
