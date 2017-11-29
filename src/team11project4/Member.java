@@ -21,14 +21,7 @@ public class Member implements Serializable {
 	public String memberCity;
 	public String memberState;
 	public String memberZip;
-<<<<<<< HEAD
 	public ArrayList<ProvidedServiceRecord> providedServices;
-=======
-	
-	public Member() {
-		
-	}
->>>>>>> branch 'master' of https://sdgillen@bitbucket.org/syue2/cs200fall2017team11.git
 
 	/**
 	 * Constructor for creating new a new member object. Requires a string for each of the member's name,
