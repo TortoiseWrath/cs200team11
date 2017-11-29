@@ -95,13 +95,16 @@ public class UserScenes {
 		Label instr = new Label("Select an operator action:");
 		
 		//TODO: Add the buttons for each action available to operators
+		Button add = new Button("Add");
 		Button previous = new Button("User Select");
+		
+		add.setOnAction(e -> Interface.window.setScene(OperatorAddScenes.createAddScene(oldScene)));
 		previous.setOnAction(e -> Interface.window.setScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, previous);
+		root.getChildren().addAll(instr, add, previous);
 		
 		return (new Scene(root, 600, 400));
 	}

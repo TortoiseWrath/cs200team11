@@ -6,6 +6,7 @@
 package team11project4.gui;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -32,6 +33,7 @@ public class Interface extends Application{
 	public void start(Stage arg0) throws Exception {
 		window = arg0;
 		window.setTitle("Chocohalics Anonymous");
+		window.setOnCloseRequest(e -> exitProgram());
 		
 		Label instr = new Label("Select your user type:");
 		
@@ -55,6 +57,16 @@ public class Interface extends Application{
 		
 		window.show();
 		
+	}
+	
+	private void exitProgram() {
+		//Any tasks that need to be done before the program is closed needs to be put here
+		//For example, final writes/updates to the database should go hear
+		
+		//Debug print statement
+		System.out.println("Program is closing...");
+		
+		Platform.exit();
 	}
 	
 }
