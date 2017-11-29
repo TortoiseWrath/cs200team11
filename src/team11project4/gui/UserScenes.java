@@ -97,7 +97,6 @@ public class UserScenes {
 		//TODO: Add the buttons for each action available to operators
 		Button previous = new Button("User Select");
 		previous.setOnAction(e -> Interface.window.setScene(oldScene));
-		Button add = new Button("Add");
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
