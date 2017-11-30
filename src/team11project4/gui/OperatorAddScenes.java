@@ -33,7 +33,7 @@ public class OperatorAddScenes {
         return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }
     
-    private static Scene createAddMemScene(Scene oldScene) {
+    private static GridPane createAddForm(Scene oldScene) {
         
         GridPane root = new GridPane();
         root.setAlignment(Pos.BASELINE_CENTER);
@@ -83,19 +83,19 @@ public class OperatorAddScenes {
         previous.setOnAction(e -> Interface.setWindowScene(oldScene));
         root.add(previous, 1, 7);
         
-        return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
+        return root;
+    }
+    
+    private static Scene createAddMemScene(Scene oldScene) {
+    	
+    	GridPane root = createAddForm(oldScene);
+    	
+    	return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }
     
     private static Scene createAddProvScene(Scene oldScene) {
         
-    	Button previous = new Button(Interface.USER_SELECT);
-    	
-    	previous.setOnAction(e -> Interface.setWindowScene(oldScene));
-    	
-        //TODO: Replace this layout
-        GridPane root = new GridPane();
-        root.setAlignment(Pos.BASELINE_CENTER);
-        root.getChildren().addAll(previous);
+    	GridPane root = createAddForm(oldScene);
                 
         return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }

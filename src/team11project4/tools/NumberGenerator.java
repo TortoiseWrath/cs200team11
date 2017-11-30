@@ -25,13 +25,12 @@ public class NumberGenerator {
 		int randNum;
 		
 		for (int i = 0; i < 9; i++) {
-			randNum = rand.nextInt(10);
+			randNum = 0;
+			while (randNum <= 0) {
+				randNum = rand.nextInt(10);
+			}
 			number += randNum * digit;
 			digit = digit * 10;
-		}
-		
-		if (number < 0) {
-			number = number * -1;
 		}
 		
 		return (Integer.toString(number));
