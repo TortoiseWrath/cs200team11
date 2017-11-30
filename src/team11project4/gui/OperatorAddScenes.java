@@ -4,10 +4,15 @@
 
 package team11project4.gui;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import team11project4.tools.NumberGenerator;
 
 public class OperatorAddScenes {
 
@@ -30,14 +35,51 @@ public class OperatorAddScenes {
     
     private static Scene createAddMemScene(Scene oldScene) {
         
-        Button previous = new Button(Interface.USER_SELECT);
-        
-        previous.setOnAction(e -> Interface.setWindowScene(oldScene));
-        
-        //TODO: Replace this layout
-        VBox root = new VBox();
+        GridPane root = new GridPane();
         root.setAlignment(Pos.BASELINE_CENTER);
-        root.getChildren().addAll(previous);
+        root.setHgap(10);
+        root.setVgap(10);
+        root.setPadding(new Insets(25, 25, 25, 25));
+        
+        Label nameLabel = new Label("Name:");
+        root.add(nameLabel, 0, 1);
+        TextField nameText = new TextField();
+        root.add(nameText, 1, 1);
+        
+        Label addressLabel = new Label("Street Address:");
+        root.add(addressLabel, 0, 2);
+        TextField addressText = new TextField();
+        root.add(addressText, 1, 2);
+        
+        Label cityLabel = new Label("City:");
+        root.add(cityLabel, 0, 3);
+        TextField cityText = new TextField();
+        root.add(cityText, 1, 3);
+        
+        Label stateLabel = new Label("State:");
+        root.add(stateLabel, 0, 4);
+        TextField stateText = new TextField();
+        root.add(stateText, 1, 4);
+        
+        Label zipLabel = new Label("Zip code:");
+        root.add(zipLabel, 0, 5);
+        TextField zipText = new TextField();
+        root.add(zipText, 1, 5);
+        
+        Button enter = new Button("Enter New Member");
+        enter.setOnAction(e -> {
+        	String name = nameText.getText();
+        	String address = addressText.getText();
+        	String city = cityText.getText();
+        	String state = stateText.getText();
+        	String zip = zipText.getText();
+        	String number = NumberGenerator.generateNumber();
+        });
+        root.add(enter, 0, 7);
+        
+        Button previous = new Button(Interface.USER_SELECT);
+        previous.setOnAction(e -> Interface.setWindowScene(oldScene));
+        root.add(previous, 1, 7);
         
         return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }
@@ -49,7 +91,7 @@ public class OperatorAddScenes {
     	previous.setOnAction(e -> Interface.setWindowScene(oldScene));
     	
         //TODO: Replace this layout
-        VBox root = new VBox();
+        GridPane root = new GridPane();
         root.setAlignment(Pos.BASELINE_CENTER);
         root.getChildren().addAll(previous);
                 
