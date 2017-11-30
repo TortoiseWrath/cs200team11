@@ -43,24 +43,23 @@ public class Interface extends Application{
 		
 		Label instr = new Label("Select your user type:");
 		
-		Button memBtn = new Button("Member");
+		//Button memBtn = new Button("Member");
 		Button provBtn = new Button("Provider");
 		Button manBtn = new Button("Manager");
 		Button opBtn = new Button("Operator");
 		
-		memBtn.setOnAction(e -> window.setScene(UserScenes.createMemberScene(scene)));
+		//memBtn.setOnAction(e -> window.setScene(UserScenes.createMemberScene(scene)));
 		provBtn.setOnAction(e -> window.setScene(UserScenes.createProviderScene(scene)));
 		manBtn.setOnAction(e -> window.setScene(UserScenes.createManagerScene(scene)));
 		opBtn.setOnAction(e -> window.setScene(UserScenes.createOperatorScene(scene)));
 		
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, memBtn, provBtn, manBtn, opBtn);
+		root.getChildren().addAll(instr, /*memBtn,*/ provBtn, manBtn, opBtn);
 		
 		scene = new Scene(root, HEIGHT, WIDTH);
 		
 		window.setScene(scene);
-		
 		window.show();
 		
 	}
