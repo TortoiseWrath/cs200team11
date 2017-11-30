@@ -1,8 +1,8 @@
 /**
  * Author: Hunter Allen (jhallen3@crimson.ua.edu)
  * 
- * Class Description: A simple class containing tools that may need
- * 					  to be used in many parts of the program.
+ * Class Description: A simple class containing a function that
+ * 					  generates a string of a 9-digit number.
  */
 
 package team11project4.tools;
@@ -22,11 +22,16 @@ public class NumberGenerator {
 		
 		int number = 0;
 		int digit = 1;
+		int randNum;
 		
 		for (int i = 0; i < 9; i++) {
+			randNum = rand.nextInt(10);
+			number += randNum * digit;
 			digit = digit * 10;
-			int randNum = rand.nextInt(10);
-			number = randNum * digit;
+		}
+		
+		if (number < 0) {
+			number = number * -1;
 		}
 		
 		return (Integer.toString(number));

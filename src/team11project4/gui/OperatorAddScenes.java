@@ -74,6 +74,8 @@ public class OperatorAddScenes {
         	String state = stateText.getText();
         	String zip = zipText.getText();
         	String number = NumberGenerator.generateNumber();
+        	
+        	System.out.println(number);
         });
         root.add(enter, 0, 7);
         
