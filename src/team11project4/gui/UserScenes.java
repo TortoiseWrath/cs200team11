@@ -25,16 +25,16 @@ public class UserScenes {
 		Label instr = new Label("Select a member action:");
 		
 		//TODO: Add the buttons for each action available to members
-		Button previous = new Button("User Select");
+		Button previous = new Button(Interface.USER_SELECT);
 		//Adding an event listener to the button to return to the previous scene
-		previous.setOnAction(e -> Interface.window.setScene(oldScene));
+		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
 		root.getChildren().addAll(instr, previous);
 		
-		return (new Scene(root, 600, 400));
+		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}
 	
 	/**
@@ -49,14 +49,14 @@ public class UserScenes {
 		Label instr = new Label("Select a provider action:");
 		
 		//TODO: Add the buttons for each action available to providers
-		Button previous = new Button("User Select");
-		previous.setOnAction(e -> Interface.window.setScene(oldScene));
+		Button previous = new Button(Interface.USER_SELECT);
+		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.getChildren().addAll(instr, previous);
 		root.setAlignment(Pos.BASELINE_CENTER);
-		return (new Scene(root, 600, 400));
+		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}
 	
 	/**
@@ -71,15 +71,15 @@ public class UserScenes {
 		Label instr = new Label("Select a manager action:");
 		
 		//TODO: Add the buttons for each action available to managers
-		Button previous = new Button("User Select");
-		previous.setOnAction(e -> Interface.window.setScene(oldScene));
+		Button previous = new Button(Interface.USER_SELECT);
+		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
 		root.getChildren().addAll(instr, previous);
 		
-		return (new Scene(root, 600, 400));
+		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 		
 	}
 	
@@ -96,17 +96,19 @@ public class UserScenes {
 		
 		//TODO: Add the buttons for each action available to operators
 		Button add = new Button("Add");
-		Button previous = new Button("User Select");
+		Button del = new Button("Delete");
+		Button previous = new Button(Interface.USER_SELECT);
 		
-		add.setOnAction(e -> Interface.window.setScene(OperatorAddScenes.createAddScene(oldScene)));
-		previous.setOnAction(e -> Interface.window.setScene(oldScene));
+		add.setOnAction(e -> Interface.setWindowScene(OperatorAddScenes.createAddScene(oldScene)));
+		del.setOnAction(e -> Interface.setWindowScene(OperatorDelScenes.createDelScene(oldScene)));
+		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, add, previous);
+		root.getChildren().addAll(instr, add, del, previous);
 		
-		return (new Scene(root, 600, 400));
+		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}
 	
 }

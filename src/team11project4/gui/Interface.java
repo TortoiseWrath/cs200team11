@@ -18,8 +18,14 @@ import javafx.geometry.Pos;
 
 public class Interface extends Application{
 	
-	protected static Stage window;
+	private static Stage window;
 	private Scene scene;
+	
+	//Using these values for all scene declarations will keep the size of the GUI consistent
+	protected static final int HEIGHT = 600;
+	protected static final int WIDTH = 400;
+	
+	protected static final String USER_SELECT = "User Select";
 	
 	/**
 	 * The launch() function is needed to start the interface window.
@@ -51,7 +57,7 @@ public class Interface extends Application{
 		root.setAlignment(Pos.BASELINE_CENTER);
 		root.getChildren().addAll(instr, memBtn, provBtn, manBtn, opBtn);
 		
-		scene = new Scene(root, 600, 400);
+		scene = new Scene(root, HEIGHT, WIDTH);
 		
 		window.setScene(scene);
 		
@@ -67,6 +73,10 @@ public class Interface extends Application{
 		System.out.println("Program is closing...");
 		
 		Platform.exit();
+	}
+	
+	public static void setWindowScene(Scene scene) {
+		window.setScene(scene);
 	}
 	
 }
