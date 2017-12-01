@@ -50,11 +50,14 @@ public class UserScenes {
 		
 		//TODO: Add the buttons for each action available to providers
 		Button previous = new Button(Interface.USER_SELECT);
+		Button bill = new Button("Bill for Services");
+		
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
+		bill.setOnAction(e -> Interface.setWindowScene(OperatorBillScene.createBillScene(oldScene)));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
-		root.getChildren().addAll(instr, previous);
+		root.getChildren().addAll(instr, bill, previous);
 		root.setAlignment(Pos.BASELINE_CENTER);
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}
