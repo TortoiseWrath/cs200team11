@@ -30,8 +30,14 @@ public class ChocAnDataCenter implements Serializable {
 	/**
 	 * Constructor reads the database from the file.
 	 * If there is no database file, it creates one.
+	 * you may pass the filename as an argument;
+	 * otherwise it uses the default filename above
 	 */
 	public ChocAnDataCenter() {
+		this(filename);
+	}
+	public ChocAnDataCenter(String f) {
+		filename = f;
 		try { //Attempt to read the database from file
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
@@ -47,11 +53,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		catch (FileNotFoundException e) { //No database file
 			// Empty ArrayLists for services, members, providers
-			services = new ArrayList<Service>();
-			System.out.println(services);
-			members = new ArrayList<Member>();
-			providers = new ArrayList<Provider>();
-			
+			clear(); //initialize new arraylists
 			save(); //make a new database file
 			
 			System.err.println("Created a database file "+filename);
@@ -64,6 +66,15 @@ public class ChocAnDataCenter implements Serializable {
 			System.err.println("oh no");
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Initialize new ArrayLists for the database.
+	 */
+	public void clear() {
+		services = new ArrayList<Service>();
+		members = new ArrayList<Member>();
+		providers = new ArrayList<Provider>();
 	}
 	
 	/**
