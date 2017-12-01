@@ -31,9 +31,16 @@ public class ProvidedServiceRecord implements Serializable {
 	
 	public Boolean writeRecordToDisk() {
 		ChocAnDataCenter db = new ChocAnDataCenter();
+		
+		//Add the service to the member.
 		Member m = db.getMember(memberNumber);
 		m.providedServices.add(this); //Add the provided service to the list in the database
-		return db.updateMember(m); //update the member in the database
+		
+		//Add the service to the provider.
+		Provider p = db.getProvider(providerNumber);
+		p.providedServices.add(this); //Add the provided service to the list in the database
+		
+		return db.updateMember(m) && db.updateProvider(p); //update the member and provider in the database
 	}
 
 }

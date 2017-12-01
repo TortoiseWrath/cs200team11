@@ -37,13 +37,14 @@ public class Member implements Serializable {
 	 */
 	public Member(String number, String name, String address, String city, String state, String zip,
 			MemberStatus status) {
-		this.memberNumber = number;
-		this.memberName = name;
-		this.memberAddress = address;
-		this.memberCity = city;
-		this.memberState = state;
-		this.memberZip = zip;
-		this.memberStatus = status;
+		memberNumber = number;
+		memberName = name;
+		memberAddress = address;
+		memberCity = city;
+		memberState = state;
+		memberZip = zip;
+		memberStatus = status;
+		providedServices = new ArrayList<ProvidedServiceRecord>();
 	}
 	
 	public Member() {
