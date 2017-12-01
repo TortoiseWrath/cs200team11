@@ -43,12 +43,12 @@ public class Interface extends Application{
 		
 		Label instr = new Label("Select your user type:");
 		
-		//Button memBtn = new Button("Member");
+		//Declaring buttons for selecting user type
 		Button provBtn = new Button("Provider");
 		Button manBtn = new Button("Manager");
 		Button opBtn = new Button("Operator");
 		
-		//memBtn.setOnAction(e -> window.setScene(UserScenes.createMemberScene(scene)));
+		//Adding event listeners for actions to be taken when clicking a button
 		provBtn.setOnAction(e -> window.setScene(UserScenes.createProviderScene(scene)));
 		manBtn.setOnAction(e -> window.setScene(UserScenes.createManagerScene(scene)));
 		opBtn.setOnAction(e -> window.setScene(UserScenes.createOperatorScene(scene)));
