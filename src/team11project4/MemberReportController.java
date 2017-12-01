@@ -10,11 +10,15 @@ public class MemberReportController {
 
 	//Construct with a new data center object
 	public MemberReportController() {
+		reports = new ArrayList<MemberReport>();
+		members = new ArrayList<Member>();
 		db = new ChocAnDataCenter();
 	}
 	
 	//Construct with an existing data center object
 	public MemberReportController(ChocAnDataCenter dataCenter) {
+		reports = new ArrayList<MemberReport>();
+		members = new ArrayList<Member>();
 		db = dataCenter;
 	}
 

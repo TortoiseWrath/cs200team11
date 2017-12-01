@@ -9,11 +9,20 @@ public class EmailController {
 	}
 	
 	private Boolean sendEmails(ArrayList<Email> emails) {
-		return false;
+		Boolean success = true;
+		for(Email e : emails) {
+			success = success && e.send();
+		}
+		return success; //if all emails were sent successfully
 	}
 	
 	public Boolean emailProviderReports(ArrayList<ProviderReport> reports) {
-		return false;
+		ArrayList<Email> emails = new ArrayList<Email>();
+		for(ProviderReport r : reports) {
+			Email email = new Email(r.header, null, r.report);
+			emails.add(email);
+		}
+		return sendEmails(emails);
 	}
 	
 	public Boolean emailMemberReports(ArrayList<MemberReport> reports) {

@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class MemberReport {
 	
 	public String report;
+	public String header; 
 
 	public MemberReport(Member m) {
-		report = m.memberNumber + " " + m.memberName + "\n" + m.memberAddress + "\n" + m.memberCity + " " + m.memberState + " " + m.memberZip + "\n";
+		header = m.memberNumber + " " + m.memberName;
+		report = m.memberAddress + "\n" + m.memberCity + " " + m.memberState + " " + m.memberZip + "\n\n";
 		report += "Status: " + m.memberStatus;
 		for (ProvidedServiceRecord p : m.providedServices) {
 			report += "providedService: " + p.serviceCode + " ";
