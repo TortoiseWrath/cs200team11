@@ -4,30 +4,18 @@ import java.util.ArrayList;
 
 public class MemberReport {
 	
-	public String memberReport;
+	public String report;
 
-	public MemberReport() {
-		//Clear previous report
-		memberReport = "";
-		String temp;
-		ChocAnDataCenter Center = null;
-		ArrayList<Member> memberList = Center.getMemberData();
-		ArrayList<ProvidedServiceRecord> provServiceList = null;
-		//Iterate through members
-		
-		for (Member m: memberList) {
-			temp = "";
-			temp += m.memberNumber + " " + m.memberName + " " + m.memberAddress + " " + m.memberCity " " + m.memberState " " + m.memberZip + " ";
-			temp += "Status: " m.memberStatus;
-			for (ProvidedServiceRecord p: provServiceList) {
-				temp += "providedService: " + p.serviceCode + " ";
-				temp += "provider: " + p.providerNumber + " ";
-				temp += "on: " + p.dateProvided;
-				temp += "for: $" + p.fee + " ";
-				temp += "posted: " + p.dateAdded + "\n";
-				temp += "-----comments: " + p.comments + "\n";
-			}
-			memberReport += temp;
+	public MemberReport(Member m) {
+		report = m.memberNumber + " " + m.memberName + "\n" + m.memberAddress + "\n" + m.memberCity + " " + m.memberState + " " + m.memberZip + "\n";
+		report += "Status: " + m.memberStatus;
+		for (ProvidedServiceRecord p : m.providedServices) {
+			report += "providedService: " + p.serviceCode + " ";
+			report += "provider: " + p.providerNumber + " ";
+			report += "on: " + p.dateProvided;
+			report += "for: $" + p.fee + " ";
+			report += "posted: " + p.dateAdded + "\n";
+			report += "-----comments: " + p.comments + "\n";
 		}
 	}
 }
