@@ -258,5 +258,13 @@ public class ChocAnDataCenter implements Serializable {
 	public Boolean deleteMember(Member member) {
 		return members.remove(member) && save();
 	}
+	
+	public Boolean addService(Service service) {
+		return services.add(service) && save();
+	}
+	
+	public Boolean deleteService(Service service) {
+		return services.remove(service) && save();
+	}
 
 }
