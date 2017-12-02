@@ -53,7 +53,7 @@ public class Interface extends Application{
 		
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, /*memBtn,*/ provBtn, manBtn, opBtn);
+		root.getChildren().addAll(instr, provBtn, manBtn, opBtn);
 		
 		scene = new Scene(root, HEIGHT, WIDTH);
 		

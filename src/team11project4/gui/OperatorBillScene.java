@@ -9,10 +9,13 @@ package team11project4.gui;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 
 public class OperatorBillScene {
 
@@ -47,6 +50,7 @@ public class OperatorBillScene {
 		Label dateLabel = new Label("Date Provided:");
 		root.add(dateLabel, 0, 4);
 		TextField dateText = new TextField();
+		dateText.setPromptText("DD/MM/YYYY");
 		root.add(dateText, 1, 4);
 		
 		//Creating label and textfield for entering optional comments
@@ -58,7 +62,24 @@ public class OperatorBillScene {
 		
 		//Creating button for user to submit their input
 		Button submit = new Button("Submit");
-		submit.setOnAction(e -> System.out.println("Submitted"));
+		submit.setOnAction(e -> {
+			String memNumber = memNumText.getText();
+			String provNumber = provNumText.getText();
+			String serviceCode = serviceText.getText();
+			String date = dateText.getText();
+			String comments = comText.getText();
+			
+			if (date.contains("/")) {
+				String[] dateParts = date.split("/");
+			}
+			else { //If date is not in correct format: inform the user
+				Alert dateAlert = new Alert(AlertType.INFORMATION);
+				dateAlert.initModality(Modality.APPLICATION_MODAL);
+				dateAlert.setHeaderText("Incorrect date format");
+				dateAlert.setContentText("Enter date in the format: MM/DD/YYYY");
+				dateAlert.showAndWait();
+			}
+		});
 		root.add(submit, 1, 7);
 		
 		//Creating button for returning to user select scene
