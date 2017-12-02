@@ -10,10 +10,11 @@ public class TextInterface {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ChocAnDataCenter db = new ChocAnDataCenter();
+		System.out.println(db);
 		Member testmember = new Member();
 		testmember.memberName = "This is a member.";
 		testmember.memberNumber = "1";
-		//db.addMember(testmember);
+		if(db.getMember("1") == null) db.addMember(testmember);
 		Member retrievedMember = db.getMember("1");
 		System.out.println(retrievedMember.memberName);
 	}

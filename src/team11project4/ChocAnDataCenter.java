@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -21,7 +22,7 @@ public class ChocAnDataCenter implements Serializable {
 
 	private static String filename = "DATABASE"; //filename for the datacenter file
 	
-	private static final long serialVersionUID = 987413654643164165L;  // unique id for serializer
+	private static final long serialVersionUID = 987413653643154165L;  // unique id for serializer
 	
 	private ArrayList<Service> services;
 	private ArrayList<Member> members;
@@ -41,8 +42,19 @@ public class ChocAnDataCenter implements Serializable {
 		try { //Attempt to read the database from file
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
-			ChocAnDataCenter storedData = (ChocAnDataCenter) in.readObject(); //This will not call the constructor
-			
+			ChocAnDataCenter storedData;
+			try {
+				storedData = (ChocAnDataCenter) in.readObject(); //This will not call the constructor
+			}
+			catch (InvalidClassException e) {
+				//Database cannot be deserialized because it is incompatible with the current database structure
+				//close in and file and throw a file not found exception to pretend there is no file
+				in.close();
+				file.close();
+				System.err.println("Database file "+filename+" is incompatible with the current version of the database class.");
+				System.err.println("Creating an empty database object; this will overwrite "+filename+" when modified.");
+				throw new FileNotFoundException();
+			}
 			services = storedData.getServiceData();
 			members = storedData.getMemberData();
 			providers = storedData.getProviderData();
