@@ -5,7 +5,7 @@ public class ProviderReport {
 	public String report;
 	public String header;
 
-	public ProviderReport() {
+	public ProviderReport(Provider p) {
 		// TODO Auto-generated constructor stub
 	}
 
