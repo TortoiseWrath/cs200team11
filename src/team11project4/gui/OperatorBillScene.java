@@ -6,6 +6,8 @@
 
 package team11project4.gui;
 
+import java.util.Date;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
+import team11project4.BillForServicesController;
 
 public class OperatorBillScene {
 
@@ -66,11 +69,34 @@ public class OperatorBillScene {
 			String memNumber = memNumText.getText();
 			String provNumber = provNumText.getText();
 			String serviceCode = serviceText.getText();
-			String date = dateText.getText();
+			String dateString = dateText.getText();
 			String comments = comText.getText();
 			
-			if (date.contains("/")) {
-				String[] dateParts = date.split("/");
+			//If date is in correct format: try to write service
+			if (dateString.contains("/")) {
+				BillForServicesController bill = new BillForServicesController(provNumber);
+				
+				try {
+					bill.setService(serviceCode);
+				} catch (IllegalArgumentException a) {
+					Alert serviceAlert = new Alert(AlertType.INFORMATION);
+					serviceAlert.initModality(Modality.APPLICATION_MODAL);
+					serviceAlert.setHeaderText("Incorrect service code");
+					serviceAlert.setContentText("Service code entered does not exist.");
+					serviceAlert.showAndWait();
+				}
+				
+				String[] dateParts = dateString.split("/");
+				int month = Integer.parseInt(dateParts[0]);
+				int day = Integer.parseInt(dateParts[1]);
+				int year = Integer.parseInt(dateParts[2]);
+				//TODO: Possibly swap this out with different date object
+				@SuppressWarnings("deprecation")
+				Date date = new Date(year, month, day);
+				
+				bill.setMember(memNumber);
+				bill.setDate(date);
+				bill.setComments(comments);
 			}
 			else { //If date is not in correct format: inform the user
 				Alert dateAlert = new Alert(AlertType.INFORMATION);
@@ -78,7 +104,7 @@ public class OperatorBillScene {
 				dateAlert.setHeaderText("Incorrect date format");
 				dateAlert.setContentText("Enter date in the format: MM/DD/YYYY");
 				dateAlert.showAndWait();
-			}
+			}	
 		});
 		root.add(submit, 1, 7);
 		
