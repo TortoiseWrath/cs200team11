@@ -4,21 +4,17 @@ package team11project4;
 
 	public class ProviderReportController {
 		
-		private ArrayList<ProviderReport> reports;
-		private ArrayList<Provider> providers;
+		private ArrayList<ProviderReport> reports = new ArrayList<ProviderReport>();
+		private ArrayList<Provider> providers = new ArrayList<Provider>();
 		private ChocAnDataCenter db;
 
 		//Construct with a new data center object
 		public ProviderReportController() {
-			reports = new ArrayList<ProviderReport>();
-			providers = new ArrayList<Provider>();
 			db = new ChocAnDataCenter();
 		}
 		
 		//Construct with an existing data center object
 		public ProviderReportController(ChocAnDataCenter dataCenter) {
-			reports = new ArrayList<ProviderReport>();
-			providers = new ArrayList<Provider>();
 			db = dataCenter;
 		}
 

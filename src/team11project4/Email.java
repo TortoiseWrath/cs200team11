@@ -5,9 +5,9 @@ import java.io.ObjectOutputStream;
 
 public class Email {
 	
-	private String subject;
-	private String to;
-	private String body;
+	private String subject = "";
+	private String to = "";
+	private String body = "";
 
 	public Email(String s, String t, String b) {
 		subject = s;

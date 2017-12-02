@@ -14,14 +14,14 @@ public class Member implements Serializable {
 		ACTIVE, SUSPENDED
 	}
 
-	public String memberNumber;
-	public String memberName;
-	public MemberStatus memberStatus;
-	public String memberAddress;
-	public String memberCity;
-	public String memberState;
-	public String memberZip;
-	public ArrayList<ProvidedServiceRecord> providedServices;
+	public String memberNumber = "";
+	public String memberName = "";
+	public MemberStatus memberStatus = MemberStatus.ACTIVE;
+	public String memberAddress = "";
+	public String memberCity = "";
+	public String memberState = "";
+	public String memberZip = "";
+	public ArrayList<ProvidedServiceRecord> providedServices = new ArrayList<ProvidedServiceRecord>();
 
 	/**
 	 * Constructor for creating new a new member object. Requires a string for each of the member's name,
@@ -44,11 +44,39 @@ public class Member implements Serializable {
 		memberState = state;
 		memberZip = zip;
 		memberStatus = status;
-		providedServices = new ArrayList<ProvidedServiceRecord>();
 	}
 	
 	public Member() {
-		//null
+		
+	}
+	
+	/**
+	 * Copy constructor
+	 */
+	public Member(Member m) {
+		memberNumber = m.memberNumber;
+		memberName = m.memberName;
+		memberStatus = m.memberStatus;
+		memberCity = m.memberCity;
+		memberState = m.memberState;
+		memberZip = m.memberZip;
+		providedServices = new ArrayList<ProvidedServiceRecord>();
+		for(ProvidedServiceRecord r : m.providedServices) {
+			providedServices.add(new ProvidedServiceRecord(r));
+		}
+	}
+	
+	/**
+	 * Equals method
+	 */
+	public Boolean equals(Member m) {
+		return memberNumber.equals(m.memberNumber) &&
+				memberName.equals(m.memberName) &&
+				memberStatus.equals(m.memberStatus) &&
+				memberCity.equals(m.memberCity) &&
+				memberState.equals(m.memberState) &&
+				memberZip.equals(m.memberZip) &&
+				providedServices.equals(m.providedServices);
 	}
 
 }

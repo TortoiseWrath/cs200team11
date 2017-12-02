@@ -7,20 +7,18 @@ public class ProvidedServiceRecord implements Serializable {
 	
 	private static final long serialVersionUID = 2609221788198234892L;
 	
-	public Date dateAdded;
+	public Date dateAdded = new Date();
 	public Date dateProvided;
-	public String providerNumber;
-	public String memberNumber;
-	public String serviceCode;
-	public String comments;
-	public int fee;
+	public String providerNumber = "";
+	public String memberNumber = "";
+	public String serviceCode = "";
+	public String comments = "";
+	public int fee = -1;
 
 	public ProvidedServiceRecord() {
-		dateAdded = new Date();
 	}
 	
 	public ProvidedServiceRecord(Date dp, String pn, String mn, String sc, String c, int f) {
-		dateAdded = new Date();
 		dateProvided = dp;
 		providerNumber = pn;
 		memberNumber = mn;
@@ -41,6 +39,33 @@ public class ProvidedServiceRecord implements Serializable {
 		p.providedServices.add(this); //Add the provided service to the list in the database
 		
 		return db.updateMember(m) && db.updateProvider(p); //update the member and provider in the database
+	}
+	
+	/**
+	 * Copy constructor
+	 * 
+	 */
+	public ProvidedServiceRecord(ProvidedServiceRecord r) {
+		dateAdded = new Date(r.dateAdded.getTime());
+		dateProvided = new Date(r.dateProvided.getTime());
+		providerNumber = r.providerNumber;
+		memberNumber = r.memberNumber;
+		serviceCode = r.serviceCode;
+		comments = r.comments;
+		fee = r.fee;
+	}
+	
+	/**
+	 * Equals method
+	 */
+	public Boolean equals(ProvidedServiceRecord r) {
+		return dateAdded.equals(r.dateAdded) &&
+				dateProvided.equals(r.dateProvided) &&
+				providerNumber.equals(r.providerNumber) &&
+				memberNumber.equals(r.memberNumber) &&
+				serviceCode.equals(r.serviceCode) &&
+				comments.equals(r.comments) &&
+				fee ==r.fee;
 	}
 
 }

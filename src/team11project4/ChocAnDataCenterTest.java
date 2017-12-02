@@ -69,15 +69,19 @@ public class ChocAnDataCenterTest {
 	public final void testUpdateMemberMemberMember() {
 		testAddGetMember();
 		Member m1 = db.getMember("67");
-		Member m2 = m1;
-		m2.memberZip = "00109";
-		db.updateMember(m1, m2);
-		assertEquals("00109", db.getMember("67").memberZip);
+		Member m2 = new Member(m1);
+		m2.memberZip = "00109-4000";
+		assertTrue(db.updateMember(m1, m2)); //can update member
+		System.out.println(m1);
+		System.out.println(m2);
+		System.out.println(db.getMember("67").memberZip);
+		assertTrue(db.getMember("67").memberZip.equals("00109-4000"));
 		
 		//also test updating the member number
 		m2.memberNumber = "42";
-		db.updateMember(m1, m2);
-		assertEquals("00109", db.getMember("42").memberZip); //the new member exists
+		System.out.println(db.getMember("67").memberZip);
+		assertTrue(db.updateMember(m1, m2)); //can update member
+		assertTrue(db.getMember("42").memberZip.equals("00109-4000")); //the new member exists
 		assertEquals(null, db.getMember("67")); //the old member does not
 	}
 
@@ -155,7 +159,7 @@ public class ChocAnDataCenterTest {
 	
 	@Test
 	public final void testAddGetService() {
-		Service s = new Service();
+		ChocAnService s = new ChocAnService();
 		s.serviceCode = "67";
 		s.serviceName = "test service";
 		db.addService(s);
@@ -165,7 +169,7 @@ public class ChocAnDataCenterTest {
 	@Test
 	public final void testDeleteService() {
 		testAddGetService();
-		Service s = db.getService("67");
+		ChocAnService s = db.getService("67");
 		db.deleteService(s);
 		assertEquals(db.getService("67"), null);
 		fail("Not yet implemented");

@@ -8,6 +8,7 @@ import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.security.Provider.Service;
 import java.util.ArrayList;
 
 /**
@@ -22,9 +23,9 @@ public class ChocAnDataCenter implements Serializable {
 
 	private static String filename = "DATABASE"; //filename for the datacenter file
 	
-	private static final long serialVersionUID = 987413653643154165L;  // unique id for serializer
+	private static final long serialVersionUID = 98741365364315766L;  // unique id for serializer
 	
-	private ArrayList<Service> services;
+	private ArrayList<ChocAnService> services;
 	private ArrayList<Member> members;
 	private ArrayList<Provider> providers;
 
@@ -83,7 +84,7 @@ public class ChocAnDataCenter implements Serializable {
 	 * Initialize new ArrayLists for the database.
 	 */
 	public void clear() {
-		services = new ArrayList<Service>();
+		services = new ArrayList<ChocAnService>();
 		members = new ArrayList<Member>();
 		providers = new ArrayList<Provider>();
 		save();
@@ -115,9 +116,11 @@ public class ChocAnDataCenter implements Serializable {
 	 * @param serviceNumber the serviceNumber of the service to get
 	 * @return Service, null if none match
 	 */
-	public Service getService(String serviceNumber) {
-		for (Service s : services) { //Iterate over services
-			if(s.serviceCode.equals(serviceNumber)) return s; //Look for one with matching code
+	public ChocAnService getService(String serviceNumber) {
+		for (ChocAnService s : services) { //Iterate over services
+			if(s.serviceCode.equals(serviceNumber)) {
+				return new ChocAnService(s); //Look for one with matching code
+			}
 		}
 		return null; //No matching service
 	}
@@ -129,7 +132,9 @@ public class ChocAnDataCenter implements Serializable {
 	 */
 	public Member getMember(String memberNumber) {
 		for (Member m : members) {
-			if(m.memberNumber.equals(memberNumber)) return m;
+			if(m.memberNumber.equals(memberNumber)) {
+				return new Member(m);
+			}
 		}
 		return null; //No matching member
 	}
@@ -141,33 +146,45 @@ public class ChocAnDataCenter implements Serializable {
 	 */
 	public Provider getProvider(String providerNumber) {
 		for (Provider p : providers) {
-			if(p.providerNumber.equals(providerNumber)) return p;
+			if(p.providerNumber.equals(providerNumber)) return new Provider(p);
 		}
 		return null; //No matching provider
 	}
 	
 	/**
-	 * Get the complete list of services in the database
+	 * Get a complete list of services in the database
 	 * @return the list of services
 	 */
-	public ArrayList<Service> getServiceData() {
-		return services;
+	public ArrayList<ChocAnService> getServiceData() {
+		ArrayList<ChocAnService> newList = new ArrayList<ChocAnService>();
+		for (ChocAnService s : services) {
+			newList.add(new ChocAnService(s));
+		}
+		return newList;
 	}
 	
 	/**
-	 * Get the complete list of members in the database
+	 * Get a complete list of members in the database
 	 * @return the list of members
 	 */
 	public ArrayList<Member> getMemberData() {
-		return members;
+		ArrayList<Member> newList = new ArrayList<Member>();
+		for (Member m : members) {
+			newList.add(new Member(m));
+		}
+		return newList;
 	}
 	
 	/**
-	 * Get the complete list of providers in the database
+	 * Get a complete list of providers in the database
 	 * @return the list of providers
 	 */
 	public ArrayList<Provider> getProviderData() {
-		return providers;
+		ArrayList<Provider> newList = new ArrayList<Provider>();
+		for (Provider p : providers) {
+			newList.add(new Provider(p));
+		}
+		return newList;
 	}
 	
 	/**
@@ -193,7 +210,7 @@ public class ChocAnDataCenter implements Serializable {
 	 * @return true on success, false on failure
 	 */
 	public Boolean addProvider(Provider provider) {
-		return providers.add(provider) && save(); //add provider to ArrayList and save
+		return providers.add(new Provider(provider)) && save(); //add provider to ArrayList and save
 	}
 	
 	/**
@@ -220,7 +237,12 @@ public class ChocAnDataCenter implements Serializable {
 	 * @return true on success, false on failure
 	 */
 	public Boolean deleteProvider(Provider provider) {
-		return providers.remove(provider) && save(); //remove provider from ArrayList and save
+		for(Provider p : providers) {
+			if(p.equals(provider)) { //look for a provider that is equal
+				return providers.remove(p) && save();
+			}
+		}
+		return false; //no equal providers were found
 	}
 	
 	/**
@@ -229,7 +251,7 @@ public class ChocAnDataCenter implements Serializable {
 	 * @return true on success, false on failure
 	 */
 	public Boolean addMember(Member member) {
-		return members.add(member) && save();
+		return members.add(new Member(member)) && save();
 	}
 	
 	/**
@@ -241,7 +263,7 @@ public class ChocAnDataCenter implements Serializable {
 	 */
 	public Boolean updateMember(Member oldrecord, Member newrecord) {
 		if (this.deleteMember(oldrecord)) {
-			return this.addMember(oldrecord) && save();
+			return this.addMember(newrecord) && save();
 		}
 		return false;
 	}
@@ -256,15 +278,26 @@ public class ChocAnDataCenter implements Serializable {
 	 * @return true on success, false on failure
 	 */
 	public Boolean deleteMember(Member member) {
-		return members.remove(member) && save();
+		for(Member m : members) {
+			if(m.equals(member)) { //Look for a member that is equal
+				System.err.println(m);
+				return members.remove(m) && save();
+			}
+		}
+		return false; //no equal members found.
 	}
 	
-	public Boolean addService(Service service) {
-		return services.add(service) && save();
+	public Boolean addService(ChocAnService service) {
+		return services.add(new ChocAnService(service)) && save();
 	}
 	
-	public Boolean deleteService(Service service) {
-		return services.remove(service) && save();
+	public Boolean deleteService(ChocAnService service) {
+		for(ChocAnService s : services) {
+			if(s.equals(service)) { //Look for a service that is equal
+				return services.remove(s) && save();
+			}
+		}
+		return false; //no equal services found.
 	}
 
 }

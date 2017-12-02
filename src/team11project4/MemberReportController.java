@@ -4,21 +4,17 @@ import java.util.ArrayList;
 
 public class MemberReportController {
 	
-	private ArrayList<MemberReport> reports;
-	private ArrayList<Member> members;
+	private ArrayList<MemberReport> reports = new ArrayList<MemberReport>();
+	private ArrayList<Member> members = new ArrayList<Member>();
 	private ChocAnDataCenter db;
 
 	//Construct with a new data center object
 	public MemberReportController() {
-		reports = new ArrayList<MemberReport>();
-		members = new ArrayList<Member>();
 		db = new ChocAnDataCenter();
 	}
 	
 	//Construct with an existing data center object
 	public MemberReportController(ChocAnDataCenter dataCenter) {
-		reports = new ArrayList<MemberReport>();
-		members = new ArrayList<Member>();
 		db = dataCenter;
 	}
 

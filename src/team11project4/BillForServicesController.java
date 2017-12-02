@@ -67,7 +67,7 @@ public class BillForServicesController {
 	 * @throws IllegalArgumentException if the service does not exist
 	 */
 	public String setService(String n) throws IllegalArgumentException {
-		Service s = db.getService(n);
+		ChocAnService s = db.getService(n);
 		if(s == null) {
 			//If service does not exist
 			throw new IllegalArgumentException();
