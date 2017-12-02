@@ -66,7 +66,6 @@ public class ChocAnDataCenter implements Serializable {
 		catch (FileNotFoundException e) { //No database file
 			// Empty ArrayLists for services, members, providers
 			clear(); //initialize new arraylists
-			save(); //make a new database file
 			
 			System.err.println("Created a database file "+filename);
 		}
@@ -87,6 +86,7 @@ public class ChocAnDataCenter implements Serializable {
 		services = new ArrayList<Service>();
 		members = new ArrayList<Member>();
 		providers = new ArrayList<Provider>();
+		save();
 	}
 	
 	/**
