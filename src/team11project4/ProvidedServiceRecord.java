@@ -46,8 +46,15 @@ public class ProvidedServiceRecord implements Serializable {
 	 * 
 	 */
 	public ProvidedServiceRecord(ProvidedServiceRecord r) {
-		dateAdded = new Date(r.dateAdded.getTime());
-		dateProvided = new Date(r.dateProvided.getTime());
+		try {
+			dateAdded = new Date(r.dateAdded.getTime());
+			dateProvided = new Date(r.dateProvided.getTime());
+		}
+		catch (NullPointerException e) {
+			System.err.println("Date not provided for provided service record; defaulting to today");
+			dateAdded = new Date();
+			dateProvided = new Date();
+		}
 		providerNumber = r.providerNumber;
 		memberNumber = r.memberNumber;
 		serviceCode = r.serviceCode;

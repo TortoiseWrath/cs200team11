@@ -29,6 +29,8 @@ public class ChocAnDataCenter implements Serializable {
 	private ArrayList<Member> members;
 	private ArrayList<Provider> providers;
 
+	public ArrayList<ChocAnService> dummyServices = new ArrayList<ChocAnService>();
+
 	/**
 	 * Constructor reads the database from the file.
 	 * If there is no database file, it creates one.
@@ -78,6 +80,26 @@ public class ChocAnDataCenter implements Serializable {
 			System.err.println("oh no");
 			e.printStackTrace();
 		}
+
+		
+		/**
+		 * Dummy services for testing purposes.
+		 */
+		ChocAnService dummyService = new ChocAnService();
+		dummyService.serviceCode = "1";
+		dummyService.serviceName = "Service One";
+		dummyService.serviceFee = 111;
+		dummyServices.add(dummyService);
+		dummyService = new ChocAnService();
+		dummyService.serviceCode = "2";
+		dummyService.serviceName = "Service Two";
+		dummyService.serviceFee = 2222;
+		dummyServices.add(dummyService);
+		dummyService = new ChocAnService();
+		dummyService.serviceCode = "3";
+		dummyService.serviceName = "Service Three";
+		dummyService.serviceFee = 33333;
+		dummyServices.add(dummyService);
 	}
 	
 	/**
@@ -228,6 +250,7 @@ public class ChocAnDataCenter implements Serializable {
 	}
 	public Boolean updateProvider(Provider newrecord) {
 		Provider oldrecord = getProvider(newrecord.providerNumber);
+		if (oldrecord == null) return false; //old record could not be found
 		return updateProvider(oldrecord, newrecord);
 	}
 	
@@ -269,6 +292,7 @@ public class ChocAnDataCenter implements Serializable {
 	}
 	public Boolean updateMember(Member newrecord) {
 		Member oldrecord = getMember(newrecord.memberNumber);
+		if (oldrecord == null) return false; //old record could not be found
 		return updateMember(oldrecord, newrecord);
 	}
 	
@@ -280,7 +304,6 @@ public class ChocAnDataCenter implements Serializable {
 	public Boolean deleteMember(Member member) {
 		for(Member m : members) {
 			if(m.equals(member)) { //Look for a member that is equal
-				System.err.println(m);
 				return members.remove(m) && save();
 			}
 		}
@@ -299,5 +322,15 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return false; //no equal services found.
 	}
+	
+	/**
+	 * Add the dummy services to the main service list
+	 */
+	public void addDummyServices() {
+		for (ChocAnService s : dummyServices) {
+			addService(s);
+		}
+	}
+	
 
 }

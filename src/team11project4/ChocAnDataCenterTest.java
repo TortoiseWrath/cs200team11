@@ -2,6 +2,9 @@ package team11project4;
 
 import static org.junit.Assert.*;
 
+import java.security.Provider.Service;
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,7 +32,8 @@ public class ChocAnDataCenterTest {
 
 	@Test
 	public final void testGetServiceData() {
-		fail("Not yet implemented");
+		db.addDummyServices();
+		assertEquals(db.getServiceData().size(), 3);
 	}
 
 	@Test
@@ -72,15 +76,12 @@ public class ChocAnDataCenterTest {
 		Member m2 = new Member(m1);
 		m2.memberZip = "00109-4000";
 		assertTrue(db.updateMember(m1, m2)); //can update member
-		System.out.println(m1);
-		System.out.println(m2);
-		System.out.println(db.getMember("67").memberZip);
 		assertTrue(db.getMember("67").memberZip.equals("00109-4000"));
 		
 		//also test updating the member number
-		m2.memberNumber = "42";
-		System.out.println(db.getMember("67").memberZip);
-		assertTrue(db.updateMember(m1, m2)); //can update member
+		Member m3 = new Member(m2);
+		m3.memberNumber = "42";
+		assertTrue(db.updateMember(m2, m3)); //can update member
 		assertTrue(db.getMember("42").memberZip.equals("00109-4000")); //the new member exists
 		assertEquals(null, db.getMember("67")); //the old member does not
 	}
@@ -127,8 +128,9 @@ public class ChocAnDataCenterTest {
 		assertEquals(db.getProvider("67").providerZip, "99150");
 		
 		//also test updating the provider number
-		p2.providerNumber = "102";
-		db.updateProvider(p1, p2);
+		Provider p3 = new Provider(p2);
+		p3.providerNumber = "102";
+		db.updateProvider(p2, p3);
 		assertEquals(db.getProvider("102").providerZip, "99150"); //the new provider exists
 		assertEquals(db.getProvider("67"), null); //and the old one does not
 	}
@@ -172,7 +174,6 @@ public class ChocAnDataCenterTest {
 		ChocAnService s = db.getService("67");
 		db.deleteService(s);
 		assertEquals(db.getService("67"), null);
-		fail("Not yet implemented");
 	}
 	
 	@Test

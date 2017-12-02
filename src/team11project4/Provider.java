@@ -46,14 +46,37 @@ public class Provider implements Serializable {
 	/**
 	 * Equals method
 	 */
-	public Boolean equals(Provider p) {
-		return providerNumber.equals(p.providerNumber) &&
-				providerName.equals(p.providerName) &&
-				providerAddress.equals(p.providerAddress) &&
-				providerCity.equals(p.providerCity) &&
-				providerState.equals(p.providerState) &&
-				providerZip.equals(p.providerZip) &&
-				providedServices.equals(p.providedServices);
+	public Boolean equals(Provider pr) {
+		Boolean equal = providerNumber.equals(pr.providerNumber) &&
+				providerName.equals(pr.providerName) &&
+				providerAddress.equals(pr.providerAddress) &&
+				providerCity.equals(pr.providerCity) &&
+				providerState.equals(pr.providerState) &&
+				providerZip.equals(pr.providerZip);
+		if (!equal) return false; //skip next step
+		for(ProvidedServiceRecord p : providedServices) { //iterate over providedservices on left side
+			Boolean contained = false;
+			//look for p in rhs
+			for (ProvidedServiceRecord q : pr.providedServices) { //iterate over provided services on right side
+				if(p.equals(q)) { //rhs contains lhs
+					contained = true;
+					break; //stop looking for p
+				}
+			}
+			if(!contained) return false; //if p is not in rhs
+		}
+		for(ProvidedServiceRecord p : pr.providedServices) { //iterate over providedservices on right side
+			Boolean contained = false;
+			//look for p in lhs
+			for (ProvidedServiceRecord q : providedServices) { //iterate over provided services on left side
+				if(p.equals(q)) { //lhs contains rhs
+					contained = true;
+					break; //stop looking for p
+				}
+			}
+			if(!contained) return false; //if p is not in lhs
+		}
+		return true; //not not equal
 	}
 	
 }
