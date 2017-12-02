@@ -17,6 +17,9 @@ public class TextInterface {
 		if(db.getMember("1") == null) db.addMember(testmember);
 		Member retrievedMember = db.getMember("1");
 		System.out.println(retrievedMember.memberName);
+		
+		FormattedFee f = new FormattedFee(327686);
+		System.out.println(f.getFormatted());
 	}
 
 }
