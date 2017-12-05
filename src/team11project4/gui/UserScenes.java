@@ -51,6 +51,8 @@ public class UserScenes {
 		//TODO: Add the buttons for each action available to providers
 		Button previous = new Button(Interface.USER_SELECT);
 		Button bill = new Button("Bill for Services");
+		//TODO: Implement directory request
+		Button directory = new Button("Directory Request");
 		
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		bill.setOnAction(e -> Interface.setWindowScene(OperatorBillScene.createBillScene(oldScene)));
