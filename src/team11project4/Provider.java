@@ -79,4 +79,8 @@ public class Provider implements Serializable {
 		return true; //not not equal
 	}
 	
+	public String fullAddress() {
+		return this.providerAddress + "\n" + this.providerCity + " " + this.providerState + " " + this.providerZip;
+	}
+	
 }

@@ -1,5 +1,5 @@
 /**
- * Author: Hunter Allen (jhallen3@crimson.ua.edu)
+ * @author Hunter Allen (jhallen3@crimson.ua.edu)
  */
 
 package team11project4.gui;

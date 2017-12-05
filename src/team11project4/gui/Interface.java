@@ -1,5 +1,5 @@
 /**
- * Author: Hunter Allen (jhallen3@crimson.ua.edu)
+ * @author Hunter Allen (jhallen3@crimson.ua.edu)
  * Class Description: A class to initialize a graphical user interface for the project
  */
 
