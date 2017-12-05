@@ -76,7 +76,10 @@ public class UserScenes {
 		Label instr = new Label("Select a manager action:");
 		
 		//TODO: Add the buttons for each action available to managers
+		Button summary = new Button("Summary Report");
 		Button previous = new Button(Interface.USER_SELECT);
+		
+		summary.setOnAction(e -> Interface.setWindowScene(ManagerScenes.createSummaryScene(oldScene)));
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout

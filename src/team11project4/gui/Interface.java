@@ -44,7 +44,7 @@ public class Interface extends Application{
 		//Declaring buttons for selecting user type
 		Button provBtn = new Button("Provider");
 		Button manBtn = new Button("Manager");
-		Button opBtn = new Button("Operator");
+		Button opBtn = new Button("Operator(Interactive Mode)");
 		
 		//Adding event listeners for actions to be taken when clicking a button
 		provBtn.setOnAction(e -> window.setScene(UserScenes.createProviderScene(scene)));
