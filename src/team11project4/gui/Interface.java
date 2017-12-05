@@ -7,6 +7,7 @@ package team11project4.gui;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,8 +21,8 @@ public class Interface extends Application{
 	private Scene scene;
 	
 	//Using these values for all scene declarations will keep the size of the GUI consistent
-	protected static final int HEIGHT = 600;
-	protected static final int WIDTH = 400;
+	protected static final int HEIGHT = 650;
+	protected static final int WIDTH = 450;
 	
 	protected static final String USER_SELECT = "User Select";
 	
@@ -45,6 +46,11 @@ public class Interface extends Application{
 		Button provBtn = new Button("Provider");
 		Button manBtn = new Button("Manager");
 		Button opBtn = new Button("Operator(Interactive Mode)");
+		
+		//Setting the margin on the buttons so there is space in between them
+		VBox.setMargin(provBtn, new Insets(5, 5, 5, 5));
+		VBox.setMargin(manBtn, new Insets(5, 5, 5, 5));
+		VBox.setMargin(opBtn, new Insets(5, 5, 5, 5));
 		
 		//Adding event listeners for actions to be taken when clicking a button
 		provBtn.setOnAction(e -> window.setScene(UserScenes.createProviderScene(scene)));

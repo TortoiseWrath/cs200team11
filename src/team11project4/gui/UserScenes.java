@@ -79,13 +79,13 @@ public class UserScenes {
 		Button summary = new Button("Summary Report");
 		Button previous = new Button(Interface.USER_SELECT);
 		
-		summary.setOnAction(e -> Interface.setWindowScene(ManagerScenes.createSummaryScene(oldScene)));
+		summary.setOnAction(e -> ManagerScenes.createSummaryReport());
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, previous);
+		root.getChildren().addAll(instr, summary, previous);
 		
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 		

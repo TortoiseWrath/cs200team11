@@ -1,5 +1,5 @@
 /**
- * Author: Hunter Allen (jhallen3@crimson.ua.edu)
+ * @author Hunter Allen (jhallen3@crimson.ua.edu)
  * 
  * Class Description: A class containing a function to create the scene for the operator billing action
  */
@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -59,7 +60,7 @@ public class OperatorBillScene {
 		//Creating label and textfield for entering optional comments
 		Label comLabel = new Label("Comments:");
 		root.add(comLabel, 0, 5);
-		TextField comText = new TextField();
+		TextArea comText = new TextArea();
 		comText.setPromptText("Optional");
 		root.add(comText, 1, 5);
 		
@@ -113,7 +114,7 @@ public class OperatorBillScene {
 	    previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 	    root.add(previous, 0, 9);
 		
-		return (new Scene(root, 600, 400));
+		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 		
 	}
 	
