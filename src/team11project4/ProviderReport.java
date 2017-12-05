@@ -12,6 +12,14 @@ public class ProviderReport {
 		header = p.providerNumber + " " + p.providerName;
 		report = p.fullAddress() + "\n\n";
 		report += "Services Provided:\n";
+		for (ProvidedServiceRecord r : p.providedServices) {
+			report += "providedService: " + r.serviceCode + " ";
+			report += "member: " + r.memberNumber + " ";
+			report += "on: " + r.dateProvided + " ";
+			report += "for: $" + r.fee + " ";
+			report += "posted: " + r.dateAdded + "\n";
+			report += "-----comments: " + r.comments + "\n";
+		}
 	}
 
 }
