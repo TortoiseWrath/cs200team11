@@ -8,7 +8,6 @@ package team11project4;
 public class SummaryReport {
 	
 	public String report;
-	public String header;
 	private ChocAnDataCenter db;
 
 	/**
@@ -16,8 +15,7 @@ public class SummaryReport {
 	 */
 	public SummaryReport() {
 		this.db = new ChocAnDataCenter();
-		this.header = "Summary Report\n\n";
-		this.report = "";
+		this.report = "Summary Report\n\n";
 		
 		int totalServices = 0; int totalFee = 0;
 		for (Provider p : db.getProviderData()) {
@@ -41,8 +39,7 @@ public class SummaryReport {
 	 */
 	public SummaryReport(ChocAnDataCenter db) {
 		this.db = db;
-		this.header = "Summary Report\n\n";
-		this.report = "";
+		this.report = "Summary Report\n\n";
 		
 		int totalServices = 0; int totalFee = 0;
 		for (Provider p : db.getProviderData()) {
