@@ -1,7 +1,5 @@
 package team11project4;
 
-import java.util.ArrayList;
-
 public class MemberReport {
 	
 	public String report;

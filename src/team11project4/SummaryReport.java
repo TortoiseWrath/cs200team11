@@ -1,7 +1,8 @@
 /**
+ * Class that creates a summary report to be sent to managers.
+ * 
  * @author Hunter Allen
  * 
- * Class Description: Creates a summary report string that will be written to a file
  */
 package team11project4;
 

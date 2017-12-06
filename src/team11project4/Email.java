@@ -1,7 +1,6 @@
 package team11project4;
 
 import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 
 public class Email {
 	
