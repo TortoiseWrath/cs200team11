@@ -1,5 +1,5 @@
 /**
- * @author Hunter Allen (jhallen3@crimson.ua.edu)
+ * @author Hunter Allen
  */
 
 package team11project4.gui;
@@ -110,9 +110,10 @@ public class OperatorAddScenes {
         });
         root.add(enter, 0, 7);
         
-        Button previous = new Button(Interface.USER_SELECT);
-        previous.setOnAction(e -> Interface.setWindowScene(oldScene));
-        root.add(previous, 1, 7);
+        //Create button for returning to user select scene
+        Button userSelect = new Button(Interface.USER_SELECT);
+        userSelect.setOnAction(e -> Interface.setWindowScene(oldScene));
+        root.add(userSelect, 1, 7);
         
         return (new Scene(root, 600, 400));
     }

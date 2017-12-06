@@ -1,5 +1,5 @@
 /**
- * @author Hunter Allen (jhallen3@crimson.ua.edu)
+ * @author Hunter Allen
  * Class Description: A class to initialize a graphical user interface for the project
  */
 
@@ -25,6 +25,7 @@ public class Interface extends Application{
 	protected static final int WIDTH = 450;
 	
 	protected static final String USER_SELECT = "User Select";
+	protected static final String PREVIOUS = "Previous";
 	
 	/**
 	 * The launch() function is needed to start the interface window.

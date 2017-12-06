@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class ChocAnDataCenter implements Serializable {
 
-	private static String filename = "DATABASE_TEST"; //filename for the datacenter file
+	private static String filename = "DATABASE"; //filename for the datacenter file
 	
 	private static final long serialVersionUID = 98741365364315766L;  // unique id for serializer
 	
