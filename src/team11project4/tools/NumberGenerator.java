@@ -1,8 +1,7 @@
 /**
- * Author: Hunter Allen (jhallen3@crimson.ua.edu)
+ * Class that contains a simple function for generating 9-digit numbers for member and provider numbers.
  * 
- * Class Description: A simple class containing a function that
- * 					  generates a string of a 9-digit number.
+ * @author Hunter Allen
  */
 
 package team11project4.tools;

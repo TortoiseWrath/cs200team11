@@ -1,4 +1,6 @@
 /**
+ * Class containing the functions that create the scenes for deleting members and providers from the database.
+ * 
  * @author Hunter Allen
  */
 package team11project4.gui;
@@ -20,6 +22,12 @@ import team11project4.Provider;
 
 public class OperatorDelScenes {
 
+	/**
+	 * Creates the scene for choosing to delete a member or a provider.
+	 * 
+	 * @param oldScene	The initial scene created
+	 * @return			Scene providing options for deleting member or provider
+	 */
 	public static Scene createDelScene(Scene oldScene) {
 		
 		Label instr = new Label("Select an option");
@@ -46,6 +54,12 @@ public class OperatorDelScenes {
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}
 	
+	/**
+	 * Creates a scene with form for deleting a member.
+	 * 
+	 * @param oldScene	The initial scene created
+	 * @return			The scene allowing operators to delete members
+	 */
 	private static Scene createDelMemScene(Scene oldScene) {
 		//Create ChocAnDataCenter to access and delete members
 		ChocAnDataCenter db = new ChocAnDataCenter();
@@ -103,6 +117,12 @@ public class OperatorDelScenes {
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}
 	
+	/**
+	 * Creates a scene with form for deleting a provider.
+	 * 
+	 * @param oldScene	The initial scene created
+	 * @return			The scene allowing operators to delete providers
+	 */
 	private static Scene createDelProvScene(Scene oldScene) {
 		//Create ChocAnDataCenter to access and delete providers
 		ChocAnDataCenter db = new ChocAnDataCenter();
