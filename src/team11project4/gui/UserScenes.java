@@ -90,6 +90,7 @@ public class UserScenes {
 		//TODO: Add the buttons for each action available to operators
 		Button add = new Button("Add");
 		Button del = new Button("Delete");
+		Button update = new Button("Update");
 		Button map = new Button("Run Main Accouting Procedure");
 		Button previous = new Button(Interface.USER_SELECT);
 		
@@ -98,16 +99,18 @@ public class UserScenes {
 		VBox.setMargin(add, new Insets(5, 0, 5, 0));
 		VBox.setMargin(del, new Insets(5, 0, 5, 0));
 		VBox.setMargin(map, new Insets(5, 0, 5, 0));
+		VBox.setMargin(update, new Insets(5, 0, 5, 0));
 		
 		add.setOnAction(e -> Interface.setWindowScene(OperatorAddScenes.createAddScene(oldScene)));
 		del.setOnAction(e -> Interface.setWindowScene(OperatorDelScenes.createDelScene(oldScene)));
+		update.setOnAction(e -> Interface.setWindowScene(OperatorUpdateScenes.createUpdateScene(oldScene)));
 		map.setOnAction(e -> MainAccountingScene.runMainAccountingProcedure());
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, add, del, map, previous);
+		root.getChildren().addAll(instr, add, del, update, map, previous);
 		
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}
