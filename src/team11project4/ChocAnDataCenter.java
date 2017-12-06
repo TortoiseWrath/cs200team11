@@ -99,6 +99,8 @@ public class ChocAnDataCenter implements Serializable {
 		dummyService.serviceName = "Service Three";
 		dummyService.serviceFee = 33333;
 		dummyServices.add(dummyService);
+		
+		addDummyServices(); //for demo
 	}
 	
 	/**

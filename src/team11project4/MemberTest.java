@@ -8,6 +8,11 @@ import org.junit.Test;
 
 import team11project4.Member.MemberStatus;
 
+/**
+ * 
+ * @author sdgillen
+ *
+ */
 public class MemberTest {
 
 	@Test
