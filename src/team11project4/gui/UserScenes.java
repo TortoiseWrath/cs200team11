@@ -14,30 +14,6 @@ import javafx.geometry.Pos;
 public class UserScenes {
 	
 	/**
-	 * Returns a new scene for selecting from the actions that are available to the member users.
-	 * 
-	 * @param oldScene	The scene from which this function is being called
-	 * @return			A new scene for displaying member options
-	 */
-	public static Scene createMemberScene(Scene oldScene) {
-		
-		//TODO: Update the label to provide clear instructions
-		Label instr = new Label("Select a member action:");
-		
-		//TODO: Add the buttons for each action available to members
-		Button previous = new Button(Interface.USER_SELECT);
-		//Adding an event listener to the button to return to the previous scene
-		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
-		
-		//TODO: Change this to a better looking layout
-		VBox root = new VBox();
-		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, previous);
-		
-		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
-	}
-	
-	/**
 	 * Returns a new scene for selecting from the actions available to provider users
 	 * 
 	 * @param oldScene	The current scene from which this function is being called
@@ -56,10 +32,11 @@ public class UserScenes {
 		
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		bill.setOnAction(e -> Interface.setWindowScene(OperatorBillScene.createBillScene(oldScene)));
+		directory.setOnAction(e -> DirectoryRequestScene.providerDirectoryRequest());
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
-		root.getChildren().addAll(instr, bill, previous);
+		root.getChildren().addAll(instr, bill, directory, previous);
 		root.setAlignment(Pos.BASELINE_CENTER);
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}

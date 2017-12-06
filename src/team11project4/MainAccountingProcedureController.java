@@ -59,7 +59,7 @@ public class MainAccountingProcedureController {
 		String mapData = "Main Accounting Procedure Data:\n\n";
 		mapData += "Total Active Providers: " + totalProviders + "\n";
 		mapData += "Total Services Provided: " + totalServices + "\n";
-		mapData += "Total Fees: " + totalFees + "\n";
+		mapData += "Total Fees: " + new FormattedFee(totalFees).getFormatted() + "\n";
 		
 		Email mapEmail = new Email("MAPData", null, mapData);
 		mapEmail.send();

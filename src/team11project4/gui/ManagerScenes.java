@@ -14,7 +14,7 @@ public class ManagerScenes {
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText("Summary Report Generated");
-		alert.setContentText("Summary Report added to summary reports folder");
+		alert.setContentText("Summary report added to reports folder");
 		alert.showAndWait();
 	}
 }
