@@ -7,11 +7,15 @@ package team11project4.gui;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import team11project4.ChocAnDataCenter;
 import team11project4.Member;
 import team11project4.Member.MemberStatus;
 import team11project4.Provider;
@@ -37,6 +41,7 @@ public class OperatorAddScenes {
     }
     
     private static Scene createAddMemScene(Scene oldScene) {
+    	ChocAnDataCenter db = new ChocAnDataCenter();
         
         GridPane root = new GridPane();
         root.setAlignment(Pos.BASELINE_CENTER);
@@ -91,13 +96,24 @@ public class OperatorAddScenes {
         return (new Scene(root, 600, 400));
     }
     
+    /**
+     * Creating scene for allowing operators to add providers to the database
+     * 
+     * @param oldScene	Scene for allowing the user to return to the user selection screen
+     * @return			Add provider scene
+     */
     private static Scene createAddProvScene(Scene oldScene) {
+    	//Create ChocAnDataCenter object for accessing provider data and adding new providers to database
+    	ChocAnDataCenter db = new ChocAnDataCenter();
     	
+    	//Create GridPane layout for add provider form
         GridPane root = new GridPane();
         root.setAlignment(Pos.BASELINE_CENTER);
         root.setHgap(10);
         root.setVgap(10);
         root.setPadding(new Insets(25, 25, 25, 25));
+        
+        //Creating all of the labels and textfields for needed provider data
         
         Label nameLabel = new Label("Name:");
         root.add(nameLabel, 0, 1);
@@ -124,6 +140,7 @@ public class OperatorAddScenes {
         TextField zipText = new TextField();
         root.add(zipText, 1, 5);
         
+        //Create button for submitting data to the system
         Button enter = new Button("Confirm");
         enter.setOnAction(e -> {
         	String name = nameText.getText();
@@ -132,11 +149,33 @@ public class OperatorAddScenes {
         	String state = stateText.getText();
         	String zip = zipText.getText();
         	String number = NumberGenerator.generateNumber();
-        	
+        	//Check if number generated is already in use. If so, generate new numbers until one is not in use
+        	for (Provider p : db.getProviderData()) {
+        		while (number.equals(p.providerNumber)) {
+        			number = NumberGenerator.generateNumber();
+        		}
+        	}
+        	/*
+        	 * Create provider object and attempt to add it to the database.
+        	 * Alert the user if it succeeds or if it fails.
+        	 */
         	Provider provider = new Provider(name, address, city, state, zip, number);
+        	if (db.addProvider(provider)) {
+        		Alert success = new Alert(AlertType.INFORMATION);
+        		success.setHeaderText("Provider Added");
+        		success.setContentText("Provider created with number: " + number);
+        		success.showAndWait();
+        	} else {
+        		Alert failure = new Alert(AlertType.INFORMATION);
+        		failure.initModality(Modality.APPLICATION_MODAL);
+        		failure.setHeaderText("Adding Provider Failed");
+        		failure.setContentText("Failed to add provider.\nPlease check information and try again.");
+        		failure.showAndWait();
+        	}
         });
         root.add(enter, 0, 7);
         
+        //Create button for returning to the user select screen
         Button previous = new Button(Interface.USER_SELECT);
         previous.setOnAction(e -> Interface.setWindowScene(oldScene));
         root.add(previous, 1, 7);

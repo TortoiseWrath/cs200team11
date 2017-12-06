@@ -75,29 +75,43 @@ public class OperatorBillScene {
 			
 			//If date is in correct format: try to write service
 			if (dateString.contains("/")) {
+				//Create BillForServicesController for adding service to database
 				BillForServicesController bill = new BillForServicesController(provNumber);
+				//Create boolean value for saving if service was successfully added
+				boolean success;
 				
 				try {
 					bill.setService(serviceCode);
+					success = true;
 				} catch (IllegalArgumentException a) {
 					Alert serviceAlert = new Alert(AlertType.INFORMATION);
 					serviceAlert.initModality(Modality.APPLICATION_MODAL);
 					serviceAlert.setHeaderText("Incorrect service code");
 					serviceAlert.setContentText("Service code entered does not exist.");
 					serviceAlert.showAndWait();
+					success = false;
 				}
 				
-				String[] dateParts = dateString.split("/");
-				int month = Integer.parseInt(dateParts[0]);
-				int day = Integer.parseInt(dateParts[1]);
-				int year = Integer.parseInt(dateParts[2]);
-				//TODO: Possibly swap this out with different date object
-				@SuppressWarnings("deprecation")
-				Date date = new Date(year, month, day);
-				
-				bill.setMember(memNumber);
-				bill.setDate(date);
-				bill.setComments(comments);
+				if (success) {
+					String[] dateParts = dateString.split("/");
+					int month = Integer.parseInt(dateParts[0]);
+					int day = Integer.parseInt(dateParts[1]);
+					int year = Integer.parseInt(dateParts[2]);
+					//TODO: Possibly swap this out with different date object
+					@SuppressWarnings("deprecation")
+					Date date = new Date(year, month, day);
+					
+					bill.setMember(memNumber);
+					bill.setDate(date);
+					bill.setComments(comments);
+				}
+				else {
+					Alert failure = new Alert(AlertType.INFORMATION);
+					failure.initModality(Modality.APPLICATION_MODAL);
+					failure.setHeaderText("Billing Failed");
+					failure.setContentText("Failed to bill Chocaholics Anonymous for service");
+					failure.showAndWait();
+				}
 			}
 			else { //If date is not in correct format: inform the user
 				Alert dateAlert = new Alert(AlertType.INFORMATION);
