@@ -4,9 +4,9 @@ import java.io.FileOutputStream;
 
 public class Email {
 	
-	private String subject = "";
-	private String to = "";
-	private String body = "";
+	public String subject = "";
+	public String to = "";
+	public String body = "";
 
 	public Email(String s, String t, String b) {
 		subject = s;
@@ -32,5 +32,5 @@ public class Email {
 		System.err.println("Email saved to "+subject+".txt");
 	    return true; //succeeded
 	}
-
+	
 }

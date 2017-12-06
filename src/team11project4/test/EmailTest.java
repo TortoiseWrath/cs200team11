@@ -34,5 +34,15 @@ public class EmailTest {
 		assertFalse(new Email(subject, null, null).send());
 	}
 	
+	@Test
+	public void testSubject() {
+		assertTrue(subject.equals(email.subject));
+	}
+	
+	@Test
+	public void testBody() {
+		assertTrue(body.equals(body));
+	}
+	
 
 }
