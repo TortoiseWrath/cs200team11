@@ -7,6 +7,10 @@ import team11project4.SummaryReport;
 
 public class ManagerScenes {
 
+	/**
+	 * Creates and writes a summary report when called.
+	 * Also alerts the user that the report was saved.
+	 */
 	public static void createSummaryReport() {
 		SummaryReport report = new SummaryReport();
 		Email emailReport = new Email("SummaryReport", null, report.report);

@@ -23,6 +23,12 @@ import team11project4.tools.NumberGenerator;
 
 public class OperatorAddScenes {
 
+	/**
+	 * Creates the scene for allowing the user to add members or providers.
+	 * 
+	 * @param oldScene	The initial scene created. Allows returning to user select.
+	 * @return	The option scene of selecting adding members or providers
+	 */
     public static Scene createAddScene(Scene oldScene) {
         
         VBox root = new VBox();
@@ -48,6 +54,12 @@ public class OperatorAddScenes {
         return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }
     
+    /**
+     * Creates scene with form for adding new members to the database.
+     * 
+     * @param oldScene	The initial scene created. Allows returning to user select.
+     * @return			The scene for adding members to the database
+     */
     private static Scene createAddMemScene(Scene oldScene) {
     	ChocAnDataCenter db = new ChocAnDataCenter();
         
@@ -134,8 +146,8 @@ public class OperatorAddScenes {
     /**
      * Creating scene for allowing operators to add providers to the database
      * 
-     * @param oldScene	Scene for allowing the user to return to the user selection screen
-     * @return			Add provider scene
+     * @param oldScene	The initial scene created. Allows returning to user select.
+     * @return			Scene for adding providers to the database
      */
     private static Scene createAddProvScene(Scene oldScene) {
     	//Create ChocAnDataCenter object for accessing provider data and adding new providers to database

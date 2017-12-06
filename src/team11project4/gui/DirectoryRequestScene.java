@@ -7,6 +7,10 @@ import team11project4.ProviderDirectory;
 
 public class DirectoryRequestScene {
 
+	/**
+	 * Creates and writes a provider directory when called.
+	 * Also alerts the user that the file was saved.
+	 */
 	public static void providerDirectoryRequest() {
 		ProviderDirectory directory = new ProviderDirectory();
 		Email emailDirectory = new Email("ProviderDirectory", null, directory.directory);

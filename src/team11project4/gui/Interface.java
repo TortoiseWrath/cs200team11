@@ -69,12 +69,18 @@ public class Interface extends Application{
 		
 	}
 	
+	/**
+	 * Properly closes the program and can perform any necessay final steps before shutdown
+	 */
 	private void exitProgram() {
-		//Any tasks that need to be done before the program is closed needs to be put here
-		
 		Platform.exit();
 	}
 	
+	/**
+	 * Sets the scene that is displayed in the window.
+	 * 
+	 * @param scene	The scene to be set as currently displayed
+	 */
 	public static void setWindowScene(Scene scene) {
 		window.setScene(scene);
 	}
