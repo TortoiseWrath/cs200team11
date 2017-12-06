@@ -8,16 +8,16 @@ public class MemberReport {
 
 	public MemberReport(Member m) {
 		recipient = m.memberName;
-		header = m.memberNumber + " " + m.memberName;
+		header = m.memberName + "\n" + m.memberNumber + "\n";
 		report = m.memberAddress + "\n" + m.memberCity + " " + m.memberState + " " + m.memberZip + "\n\n";
 		report += "Status: " + m.memberStatus;
 		for (ProvidedServiceRecord p : m.providedServices) {
-			report += "providedService: " + p.serviceCode + " ";
-			report += "provider: " + p.providerNumber + " ";
-			report += "on: " + p.dateProvided;
-			report += "for: $" + p.fee + " ";
-			report += "posted: " + p.dateAdded + "\n";
-			report += "-----comments: " + p.comments + "\n";
+			report += "Service Recieved: " + p.serviceCode + " ";
+			report += "Provider: " + p.providerNumber + " ";
+			report += "Date: " + p.dateProvided;
+			report += "Fee: $" + p.fee + " ";
+			report += "Posted: " + p.dateAdded + "\n";
+			report += "Comments: " + p.comments + "\n";
 		}
 	}
 }

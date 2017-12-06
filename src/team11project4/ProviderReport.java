@@ -11,16 +11,16 @@ public class ProviderReport {
 
 	public ProviderReport(Provider p) {
 		recipient = p.providerName;
-		header = p.providerNumber + " " + p.providerName;
+		header = p.providerName + "\n" + p.providerNumber;
 		report = p.fullAddress() + "\n\n";
 		report += "Services Provided:\n";
 		for (ProvidedServiceRecord r : p.providedServices) {
-			report += "providedService: " + r.serviceCode + " ";
-			report += "member: " + r.memberNumber + " ";
-			report += "on: " + r.dateProvided + " ";
-			report += "for: $" + r.fee + " ";
-			report += "posted: " + r.dateAdded + "\n";
-			report += "-----comments: " + r.comments + "\n";
+			report += "Service Provided: " + r.serviceCode + " ";
+			report += "Member: " + r.memberNumber + " ";
+			report += "Date: " + r.dateProvided + " ";
+			report += "For: $" + r.fee + " ";
+			report += "Posted: " + r.dateAdded + "\n";
+			report += "Comments: " + r.comments + "\n";
 		}
 	}
 
