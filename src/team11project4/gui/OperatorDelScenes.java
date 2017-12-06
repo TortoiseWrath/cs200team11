@@ -26,15 +26,22 @@ public class OperatorDelScenes {
 		
 		Button delMem = new Button("Delete Member");
 		Button delProv = new Button("Delete Provider");
-		Button previous = new Button(Interface.USER_SELECT);
+		Button previous = new Button("Previous");
+		Button userSelect = new Button(Interface.USER_SELECT);
+		
+		VBox.setMargin(delMem, new Insets(5, 0, 5, 0));
+		VBox.setMargin(delProv, new Insets(5, 0, 5, 0));
+		VBox.setMargin(previous, new Insets(5, 0, 5, 0));
+		VBox.setMargin(userSelect, new Insets(5, 0, 5, 0));
 		
 		delMem.setOnAction(e -> Interface.setWindowScene(createDelMemScene(oldScene)));
 		delProv.setOnAction(e -> Interface.setWindowScene(createDelProvScene(oldScene)));
-		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
+		previous.setOnAction(e -> Interface.setWindowScene(UserScenes.createOperatorScene(oldScene)));
+		userSelect.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, delMem, delProv, previous);
+		root.getChildren().addAll(instr, delMem, delProv, previous, userSelect);
 		
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}

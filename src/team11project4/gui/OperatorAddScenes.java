@@ -30,12 +30,20 @@ public class OperatorAddScenes {
         
         Button addMem = new Button("Add Member");
         Button addProv = new Button("Add Provider");
-        Button returnBtn = new Button(Interface.USER_SELECT);
+        Button previous = new Button("Previous");
+        Button userSelect = new Button(Interface.USER_SELECT);
+        
+        VBox.setMargin(addMem, new Insets(5, 0, 5, 0));
+        VBox.setMargin(addProv, new Insets(5, 0, 5, 0));
+        VBox.setMargin(previous, new Insets(5, 0, 5, 0));
+        VBox.setMargin(userSelect, new Insets(5, 0, 5, 0));
         
         addMem.setOnAction(e -> Interface.setWindowScene(createAddMemScene(oldScene)));
         addProv.setOnAction(e -> Interface.setWindowScene(createAddProvScene(oldScene)));
+        previous.setOnAction(e -> Interface.setWindowScene(UserScenes.createOperatorScene(oldScene)));
+        userSelect.setOnAction(e -> Interface.setWindowScene(oldScene));
         
-        root.getChildren().addAll(addMem, addProv, returnBtn);
+        root.getChildren().addAll(addMem, addProv, previous, userSelect);
         
         return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }
@@ -110,12 +118,17 @@ public class OperatorAddScenes {
         });
         root.add(enter, 0, 7);
         
+        //Create button for returning to previous scene
+        Button previous = new Button(Interface.PREVIOUS);
+        previous.setOnAction(e -> Interface.setWindowScene(createAddScene(oldScene)));
+        root.add(previous, 0, 8);
+        
         //Create button for returning to user select scene
         Button userSelect = new Button(Interface.USER_SELECT);
         userSelect.setOnAction(e -> Interface.setWindowScene(oldScene));
-        root.add(userSelect, 1, 7);
+        root.add(userSelect, 1, 8);
         
-        return (new Scene(root, 600, 400));
+        return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }
     
     /**
@@ -197,10 +210,15 @@ public class OperatorAddScenes {
         });
         root.add(enter, 0, 7);
         
+        //Create button for returning to previous scene
+        Button previous = new Button(Interface.PREVIOUS);
+        previous.setOnAction(e -> Interface.setWindowScene(createAddScene(oldScene)));
+        root.add(previous, 0, 8);
+        
         //Create button for returning to the user select screen
-        Button previous = new Button(Interface.USER_SELECT);
-        previous.setOnAction(e -> Interface.setWindowScene(oldScene));
-        root.add(previous, 1, 7);
+        Button userSelect = new Button(Interface.USER_SELECT);
+        userSelect.setOnAction(e -> Interface.setWindowScene(oldScene));
+        root.add(userSelect, 1, 8);
                 
         return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
     }

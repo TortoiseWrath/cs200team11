@@ -123,10 +123,15 @@ public class OperatorBillScene {
 		});
 		root.add(submit, 1, 7);
 		
+		//Create button for returning to previous scene
+		Button previous = new Button(Interface.PREVIOUS);
+		previous.setOnAction(e -> Interface.setWindowScene(UserScenes.createProviderScene(oldScene)));
+		root.add(previous, 0, 8);
+		
 		//Creating button for returning to user select scene
-		Button previous = new Button(Interface.USER_SELECT);
-	    previous.setOnAction(e -> Interface.setWindowScene(oldScene));
-	    root.add(previous, 0, 9);
+		Button userSelect = new Button(Interface.USER_SELECT);
+	    userSelect.setOnAction(e -> Interface.setWindowScene(oldScene));
+	    root.add(userSelect, 1, 8);
 		
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 		
