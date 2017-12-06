@@ -1,5 +1,5 @@
 /**
- * @athor Hunter Allen
+ * @author Hunter Allen
  */
 package team11project4;
 
@@ -12,6 +12,10 @@ public class MainAccountingProcedureController {
 	private ArrayList<ProviderReport> providerReports;
 	private ArrayList<MemberReport> memberReports;
 
+	/**
+	 * Constructor for creating MainAccountingProcedureController object.
+	 * Will automatically pull in needed data from database.
+	 */
 	public MainAccountingProcedureController() {
 		//Creating array list of provider reports to be e-mailed
 		ProviderReportController prController = new ProviderReportController();
@@ -25,6 +29,11 @@ public class MainAccountingProcedureController {
 		summaryReport = new SummaryReport();
 	}
 	
+	/**
+	 * Runs the Main Accounting Procedure and writes data to files.
+	 * 
+	 * @return	True if success, False if failed
+	 */
 	public Boolean runProcedure() {
 		//Iterate through list of provider reports and save each one to a file titled with the provider's name
 		for (ProviderReport r : this.providerReports) {

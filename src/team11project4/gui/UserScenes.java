@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 public class UserScenes {
@@ -27,8 +28,11 @@ public class UserScenes {
 		//TODO: Add the buttons for each action available to providers
 		Button previous = new Button(Interface.USER_SELECT);
 		Button bill = new Button("Bill for Services");
-		//TODO: Implement directory request
 		Button directory = new Button("Directory Request");
+		
+		VBox.setMargin(previous, new Insets(5, 0, 5, 0));
+		VBox.setMargin(bill, new Insets(5, 0, 5, 0));
+		VBox.setMargin(directory, new Insets(5, 0, 5, 0));
 		
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		bill.setOnAction(e -> Interface.setWindowScene(OperatorBillScene.createBillScene(oldScene)));
@@ -56,6 +60,10 @@ public class UserScenes {
 		Button summary = new Button("Summary Report");
 		Button previous = new Button(Interface.USER_SELECT);
 		
+		//Setting margins on buttons' top and bottom
+		VBox.setMargin(summary, new Insets(5, 0, 5, 0));
+		VBox.setMargin(previous, new Insets(5, 0, 5, 0));
+		
 		summary.setOnAction(e -> ManagerScenes.createSummaryReport());
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
@@ -82,16 +90,24 @@ public class UserScenes {
 		//TODO: Add the buttons for each action available to operators
 		Button add = new Button("Add");
 		Button del = new Button("Delete");
+		Button map = new Button("Run Main Accouting Procedure");
 		Button previous = new Button(Interface.USER_SELECT);
+		
+		//Setting margins on buttons top and bottom
+		VBox.setMargin(previous, new Insets(5, 0, 5, 0));
+		VBox.setMargin(add, new Insets(5, 0, 5, 0));
+		VBox.setMargin(del, new Insets(5, 0, 5, 0));
+		VBox.setMargin(map, new Insets(5, 0, 5, 0));
 		
 		add.setOnAction(e -> Interface.setWindowScene(OperatorAddScenes.createAddScene(oldScene)));
 		del.setOnAction(e -> Interface.setWindowScene(OperatorDelScenes.createDelScene(oldScene)));
+		map.setOnAction(e -> MainAccountingScene.runMainAccountingProcedure());
 		previous.setOnAction(e -> Interface.setWindowScene(oldScene));
 		
 		//TODO: Change this to a better looking layout
 		VBox root = new VBox();
 		root.setAlignment(Pos.BASELINE_CENTER);
-		root.getChildren().addAll(instr, add, del, previous);
+		root.getChildren().addAll(instr, add, del, map, previous);
 		
 		return (new Scene(root, Interface.HEIGHT, Interface.WIDTH));
 	}

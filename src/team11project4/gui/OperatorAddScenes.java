@@ -82,10 +82,31 @@ public class OperatorAddScenes {
         	String state = stateText.getText();
         	String zip = zipText.getText();
         	String number = NumberGenerator.generateNumber();
+        	//Check if number is already in use for a member. If so, generate new number until one is not in use.
+        	for (Member m : db.getMemberData()) {
+        		if (number.equals(m.memberNumber)) {
+        			number = NumberGenerator.generateNumber();
+        		}
+        	}
+        	/*
+        	 * Create member object and attempt to add it to the database.
+        	 * Alert the user if it succeeds or fails.
+        	 */
+        	Member member = new Member(number, name, address, city, state, zip, MemberStatus.ACTIVE);
+        	if (db.addMember(member)) {
+        		Alert success = new Alert(AlertType.INFORMATION);
+        		success.setHeaderText("Member Added");
+        		success.setContentText("Successfully added member with number: " + number);
+        		success.showAndWait();
+        	} else  {
+        		Alert failure = new Alert(AlertType.ERROR);
+        		failure.initModality(Modality.APPLICATION_MODAL);
+        		failure.setHeaderText("Adding Member Failed");
+        		failure.setContentText("Failed to add member.\nPlease check information and try again.");
+        		failure.showAndWait();
+        	}
         	
-        	Member member = new Member(name, address, city, state, zip, number, MemberStatus.ACTIVE);
         	
-        	System.out.println(number);
         });
         root.add(enter, 0, 7);
         
@@ -151,7 +172,7 @@ public class OperatorAddScenes {
         	String number = NumberGenerator.generateNumber();
         	//Check if number generated is already in use. If so, generate new numbers until one is not in use
         	for (Provider p : db.getProviderData()) {
-        		while (number.equals(p.providerNumber)) {
+        		if (number.equals(p.providerNumber)) {
         			number = NumberGenerator.generateNumber();
         		}
         	}
@@ -159,7 +180,7 @@ public class OperatorAddScenes {
         	 * Create provider object and attempt to add it to the database.
         	 * Alert the user if it succeeds or if it fails.
         	 */
-        	Provider provider = new Provider(name, address, city, state, zip, number);
+        	Provider provider = new Provider(number, name, address, city, state, zip);
         	if (db.addProvider(provider)) {
         		Alert success = new Alert(AlertType.INFORMATION);
         		success.setHeaderText("Provider Added");
