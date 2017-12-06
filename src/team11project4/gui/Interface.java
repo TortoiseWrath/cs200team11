@@ -71,7 +71,6 @@ public class Interface extends Application{
 	
 	private void exitProgram() {
 		//Any tasks that need to be done before the program is closed needs to be put here
-		//For example, final writes/updates to the database should go hear
 		
 		Platform.exit();
 	}
