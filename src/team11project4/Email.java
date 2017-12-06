@@ -20,7 +20,7 @@ public class Email {
 		//and print "Email saved to [Subject].txt"
 			
 		try {
-			FileOutputStream file = new FileOutputStream(subject+".txt");
+			FileOutputStream file = new FileOutputStream("reports/"+subject+".txt");
 		    file.write(body.getBytes()); //write body to file
 		    file.close(); //close file stream
 		}
