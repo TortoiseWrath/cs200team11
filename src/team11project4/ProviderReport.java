@@ -7,8 +7,10 @@ public class ProviderReport {
 	
 	public String report;
 	public String header;
+	public String recipient;
 
 	public ProviderReport(Provider p) {
+		recipient = p.providerName;
 		header = p.providerNumber + " " + p.providerName;
 		report = p.fullAddress() + "\n\n";
 		report += "Services Provided:\n";

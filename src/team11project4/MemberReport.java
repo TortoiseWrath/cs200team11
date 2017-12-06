@@ -6,8 +6,10 @@ public class MemberReport {
 	
 	public String report;
 	public String header; 
+	public String recipient;
 
 	public MemberReport(Member m) {
+		recipient = m.memberName;
 		header = m.memberNumber + " " + m.memberName;
 		report = m.memberAddress + "\n" + m.memberCity + " " + m.memberState + " " + m.memberZip + "\n\n";
 		report += "Status: " + m.memberStatus;

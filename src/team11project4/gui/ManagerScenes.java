@@ -8,7 +8,6 @@ import team11project4.SummaryReport;
 public class ManagerScenes {
 
 	public static void createSummaryReport() {
-		//TODO: Set up summary report controller to create summary report
 		SummaryReport report = new SummaryReport();
 		Email emailReport = new Email("SummaryReport", null, report.report);
 		emailReport.send();
