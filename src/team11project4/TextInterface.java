@@ -1,5 +1,6 @@
 package team11project4;
 import java.io.Console;
+import java.util.Date;
 
 public class TextInterface {
 
@@ -8,18 +9,23 @@ public class TextInterface {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ChocAnDataCenter db = new ChocAnDataCenter();
-		System.out.println(db);
-		Member testmember = new Member();
-		testmember.memberName = "This is a member.";
-		testmember.memberNumber = "1";
-		if(db.getMember("1") == null) db.addMember(testmember);
-		Member retrievedMember = db.getMember("1");
-		System.out.println(retrievedMember.memberName);
+		ProvidedServiceRecord s = new ProvidedServiceRecord();
+		s.dateProvided = new Date();
+		s.memberNumber = "1";
+		s.providerNumber = "627122283";
+		s.fee = 1111;
+		s.comments = "comment";
+		s.serviceCode = "1";
+		s.writeRecordToDisk();
 		
-		FormattedFee f = new FormattedFee(327686);
-		System.out.println(f.getFormatted());
+		 s = new ProvidedServiceRecord();
+		s.dateProvided = new Date();
+		s.memberNumber = "1";
+		s.providerNumber = "627122283";
+		s.fee = 1111;
+		s.comments = "comment";
+		s.serviceCode = "2";
+		s.writeRecordToDisk();
 	}
 
 }
