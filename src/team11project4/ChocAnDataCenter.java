@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
+ *
  * @author sdgillen
  *
  * This class implements a persistent database of services, members, and providers
@@ -21,9 +21,9 @@ import java.util.ArrayList;
 public class ChocAnDataCenter implements Serializable {
 
 	private static String filename = "DATABASE"; //filename for the datacenter file
-	
+
 	private static final long serialVersionUID = 98741365364315766L;  // unique id for serializer
-	
+
 	private ArrayList<ChocAnService> services;
 	private ArrayList<Member> members;
 	private ArrayList<Provider> providers;
@@ -60,27 +60,27 @@ public class ChocAnDataCenter implements Serializable {
 			services = storedData.getServiceData();
 			members = storedData.getMemberData();
 			providers = storedData.getProviderData();
-			
+
 			in.close();
-			file.close();			
+			file.close();
 			storedData = null; //inform garbage collector we are done with it
 		}
 		catch (FileNotFoundException e) { //No database file
 			// Empty ArrayLists for services, members, providers
 			clear(); //initialize new arraylists
-			
+
 			System.err.println("Created a database file "+filename);
 		}
 		catch (IOException e) {
 			System.err.println("Error deserializing ChocAn Data Center");
 			e.printStackTrace();
-		} 
+		}
 		catch (Exception e) {
 			System.err.println("oh no");
 			e.printStackTrace();
 		}
 
-		
+
 		/**
 		 * Dummy services for testing purposes.
 		 */
@@ -99,10 +99,10 @@ public class ChocAnDataCenter implements Serializable {
 		dummyService.serviceName = "Service Three";
 		dummyService.serviceFee = 33333;
 		dummyServices.add(dummyService);
-		
+
 		addDummyServices(); //for demo
 	}
-	
+
 	/**
 	 * Initialize new ArrayLists for the database.
 	 */
@@ -112,10 +112,10 @@ public class ChocAnDataCenter implements Serializable {
 		providers = new ArrayList<Provider>();
 		save();
 	}
-	
+
 	/**
 	 * Save the current state of the database object to the database file.
-	 * 
+	 *
 	 * @return true on success, false on failure
 	 */
 	private Boolean save() {
@@ -133,7 +133,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 	    return true; //succeeded
 	}
-	
+
 	/**
 	 * gets the service with service number serviceNumber from the database
 	 * @param serviceNumber the serviceNumber of the service to get
@@ -147,7 +147,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return null; //No matching service
 	}
-	
+
 	/**
 	 * gets the member with the member number memberNumber from the database
 	 * @param memberNumber the memberNumber of the member to get
@@ -161,7 +161,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return null; //No matching member
 	}
-	
+
 	/**
 	 * gets the provider with the provider number providerNumber from the database
 	 * @param providerNumber the providerNumber of the provider to get
@@ -173,7 +173,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return null; //No matching provider
 	}
-	
+
 	/**
 	 * Get a complete list of services in the database
 	 * @return the list of services
@@ -185,7 +185,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return newList;
 	}
-	
+
 	/**
 	 * Get a complete list of members in the database
 	 * @return the list of members
@@ -197,7 +197,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return newList;
 	}
-	
+
 	/**
 	 * Get a complete list of providers in the database
 	 * @return the list of providers
@@ -209,7 +209,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return newList;
 	}
-	
+
 	/**
 	 * get the eft data
 	 * @return
@@ -217,7 +217,7 @@ public class ChocAnDataCenter implements Serializable {
 	public EFT getEFTData() {
 		return null;
 	}
-	
+
 	/**
 	 * write the eft report to the database
 	 * @param report the EFT report to write
@@ -226,7 +226,7 @@ public class ChocAnDataCenter implements Serializable {
 	public Boolean writeEFTReport(EFTReport report) {
 		return false;
 	}
-	
+
 	/**
 	 * add a provider to the database
 	 * @param provider the Provider to add
@@ -235,10 +235,10 @@ public class ChocAnDataCenter implements Serializable {
 	public Boolean addProvider(Provider provider) {
 		return providers.add(new Provider(provider)) && save(); //add provider to ArrayList and save
 	}
-	
+
 	/**
 	 * update a provider in the database
-	 * @param oldrecord an unmodified Provider from the database 
+	 * @param oldrecord an unmodified Provider from the database
 	 * (optional; if only one Provider given, update the Provider with the same provider number)
 	 * @param newrecord the Provider with which to replace the old Provider record
 	 * @return true on success, false on failure
@@ -254,7 +254,7 @@ public class ChocAnDataCenter implements Serializable {
 		if (oldrecord == null) return false; //old record could not be found
 		return updateProvider(oldrecord, newrecord);
 	}
-	
+
 	/**
 	 * delete a provider from the database
 	 * @param provider the unmodified Provider record to delete
@@ -268,7 +268,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return false; //no equal providers were found
 	}
-	
+
 	/**
 	 * add a member to the database
 	 * @param member the Member to add
@@ -277,7 +277,7 @@ public class ChocAnDataCenter implements Serializable {
 	public Boolean addMember(Member member) {
 		return members.add(new Member(member)) && save();
 	}
-	
+
 	/**
 	 * update a member in the database
 	 * @param oldrecord an unmodified Member from the database
@@ -296,7 +296,7 @@ public class ChocAnDataCenter implements Serializable {
 		if (oldrecord == null) return false; //old record could not be found
 		return updateMember(oldrecord, newrecord);
 	}
-	
+
 	/**
 	 * delete a member from the database
 	 * @param member the unmodified Member record to delete
@@ -310,11 +310,11 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return false; //no equal members found.
 	}
-	
+
 	public Boolean addService(ChocAnService service) {
 		return services.add(new ChocAnService(service)) && save();
 	}
-	
+
 	public Boolean deleteService(ChocAnService service) {
 		for(ChocAnService s : services) {
 			if(s.equals(service)) { //Look for a service that is equal
@@ -323,7 +323,7 @@ public class ChocAnDataCenter implements Serializable {
 		}
 		return false; //no equal services found.
 	}
-	
+
 	/**
 	 * Add the dummy services to the main service list
 	 */
@@ -332,6 +332,6 @@ public class ChocAnDataCenter implements Serializable {
 			addService(s);
 		}
 	}
-	
+
 
 }
